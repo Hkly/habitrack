@@ -12,8 +12,9 @@
 #
 
 class Habit < ActiveRecord::Base
-  validates :title, :user_id, :weight, :num_days_per_week, presence: true
+  validates :title, :user_id, :num_days_per_week, presence: true
+  validates :weight, presence: true, inclusion: %w(heavy medium light)
 
   belongs_to :user
-  
+
 end

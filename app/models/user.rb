@@ -20,6 +20,8 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  has_many :habits
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     if user.nil? || !user.is_password?(password)

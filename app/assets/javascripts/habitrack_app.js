@@ -4,10 +4,6 @@ window.HabitrackApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    
   }
 };
-
-$(document).ready(function(){
-  HabitrackApp.initialize();
-});

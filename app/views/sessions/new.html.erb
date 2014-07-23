@@ -1,0 +1,28 @@
+<h1>Sign In</h1>
+
+<div class="row">
+  <div class="col-xs-5" id="sign_up_form">
+
+    <form role="form" action="<%= session_url %>" method="POST">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="form-group">
+        <label for="username_input">Username</label>
+        <input type="text"
+               class="form-control"
+               name="username_input"
+               placeholder="habitrabbit123"
+               value="<%= @user.username %>">
+      </div>
+
+      <div class="form-group">
+        <label for="password_input">Password</label>
+        <input type="password"
+               class="form-control"
+               name="password_input"
+               placeholder="Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+
+  </div>
+</div>

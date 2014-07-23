@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :ensure_signed_out, only: [:new, :create]
+  before_action :ensure_signed_in, only: [:show, :update]
 
   def new
     @user = User.new
@@ -13,9 +14,14 @@ class UsersController < ApplicationController
       signin_user!(@user)
       redirect_to root_url
     else
+      @user.new(user_params)
       flash.now[:errors] = @user.errors.full_messages
       render 'new'
     end
+  end
+
+  def show
+
   end
 
   def update
@@ -29,4 +35,3 @@ class UsersController < ApplicationController
   end
 
 end
-cd

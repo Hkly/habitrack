@@ -6,7 +6,8 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
     "mouseenter": "showDelete",
     "mouseleave": "hideDelete",
     "click button.delete-habit-btn": "deleteHabit",
-    "mousedown" : "openModal"
+    "mousedown": "openModal",
+    "click button.edit-habit-btn": "addEditForm"
   },
 
   showDelete: function(event) {

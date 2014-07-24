@@ -3,7 +3,7 @@
 <strong><%= habit.escape("title") %></strong>
 <button class='btn btn-danger delete-habit-btn hidden'>delete habit</button>
 
-<div class="modal fade" id="<%="modal" + habit.id%>" tabindex="-1">
+<div class="modal" id="<%="modal" + habit.id%>" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,10 +11,13 @@
           <span aria-hidden="true">&times;</span>
           <span class="sr-only">Close</span>
         </button>
-        <h4 class="modal-title"><%= habit.escape("title") %></h4>
+        <h2 class="modal-title"><%= habit.escape("title") %></h2>
       </div>
       <div class="modal-body">
         You made it to the modal body!
+        <div class="habit-edit-form">
+
+        </div>
       </div>
       <div class="modal-footer">
 

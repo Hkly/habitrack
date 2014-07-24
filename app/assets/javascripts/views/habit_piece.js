@@ -3,20 +3,24 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   className: "habit-piece",
 
   events: {
-    "mouseenter": "toggleDelete",
-    "mouseleave": "toggleDelete",
+    "mouseenter": "showDelete",
+    "mouseleave": "hideDelete",
     "click button.delete-habit-btn": "deleteHabit"
   },
 
-  toggleDelete: function(event) {
-    $(event.target).find('.delete-habit-btn').toggleClass('hidden');
+  showDelete: function(event) {
+    $(event.target).find('.delete-habit-btn').removeClass('hidden');
+  },
+
+  hideDelete: function(event) {
+    $(event.target).find('.delete-habit-btn').addClass('hidden');
   },
 
   deleteHabit: function(event) {
     var that = this;
     this.model.destroy({
       success: function() {
-        that.collection.remove(this.model);
+        // that.collection.remove(that.model);
       }
     });
   },

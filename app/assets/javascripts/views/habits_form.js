@@ -20,6 +20,10 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
         success: function(new_habit) {
           that.collection.add(new_habit);
           that.model = new HabitrackApp.Models.Habit();
+          that.render();
+        },
+        error: function(errors) {
+
         }
       });
     }

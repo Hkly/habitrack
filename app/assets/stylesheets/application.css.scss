@@ -71,6 +71,10 @@
 
 // *** habit views ***
 
+.habits {
+  padding-bottom: 5px;
+}
+
 .habit-piece {
   border: thin solid black;
   border-radius: 5px;
@@ -81,4 +85,8 @@
   .delete-habit-btn {
     float: right;
   }
+}
+
+.cancel-link {
+  color: #c7254e;
 }

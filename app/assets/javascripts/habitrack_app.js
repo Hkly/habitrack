@@ -4,6 +4,7 @@ window.HabitrackApp = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+    new HabitrackApp.Routers.Habits();
+    Backbone.history.start();
   }
 };

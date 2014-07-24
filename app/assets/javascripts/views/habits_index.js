@@ -5,6 +5,12 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.collection, 'add', this.addHabit);
 
+    var newFormView = new HabitrackApp.Views.HabitForm({
+      model: new HabitrackApp.Models.Habit(),
+      collection: this.collection
+    });
+    this.addSubview('.new-habit-form', newFormView);
+
     var that = this;
     this.collection.each(function(habit){
       that.addHabit(habit);

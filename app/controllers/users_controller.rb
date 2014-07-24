@@ -14,8 +14,7 @@ class UsersController < ApplicationController
       signin_user!(@user)
       redirect_to root_url
     else
-      @user.new(user_params)
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:danger] = @user.errors.full_messages
       render 'new'
     end
   end

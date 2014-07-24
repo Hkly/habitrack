@@ -10,8 +10,23 @@
 
   <%= render partial: "layouts/header" %>
 
+    <% flash.each do |key, value| %>
+    <div class="row">
+      <div class="<%= "alert alert-#{key}"%>">
+        <% value.each do |msg|%>
+          <%= msg %>
+            <br>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
   <div class="container">
+
   <%= yield %>
+
+
+
 </div>
 </body>
 </html>

@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       signin_user!(@user)
       redirect_to root_url
     else
-      flash.now[:errors] = ["Invalid username/password combo"]
+      @user = User.new(username: params[:username])
+      flash.now[:danger] = ["Invalid username/password combo"]
       render :new
     end
   end

@@ -1,37 +1,41 @@
-<h1>Sign Up</h1>
-
-<div class="row">
-  <div class="col-xs-5" id="sign_up_form">
-
+<div class="row sign-in-row">
+  <div class="col-xs-7 col-xs-offset-1 left-side-login">
+  </div>
+  <div class="col-xs-4" id="sign_up_form">
+    <h1>Sign Up</h1>
     <form role="form" action="<%= users_url %>" method="POST">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <div class="form-group">
-        <label for="username_input">Username</label>
+        <!-- <label for="username_input">Username</label> -->
         <input type="text"
                class="form-control"
                name="user[username]"
                id="username_input"
-               placeholder="habitrabbit123"
+               placeholder="Username"
                value="<%= @user.username %>">
       </div>
       <div class="form-group">
-        <label for="email_input">Email</label>
+        <!-- <label for="email_input">Email</label> -->
         <input type="text"
                class="form-control"
                name="user[email]"
                id="email_input"
-               placeholder="ex. habits@rabbits.com"
+               placeholder="Email"
                value="<%= @user.email %>">
       </div>
       <div class="form-group">
-        <label for="password_input">Password</label>
+        <!-- <label for="password_input">Password</label> -->
         <input type="password"
                class="form-control"
                name="user[password]"
                id="password_input"
-               placeholder="Make it a good one!">
+               placeholder="Password">
       </div>
       <button type="submit" class="btn btn-primary">Sign Up</button>
+
+      <span class="alternate-login-link">
+        <%= link_to "Already signed up? Login here", new_session_url %>
+      </span>
     </form>
 
   </div>

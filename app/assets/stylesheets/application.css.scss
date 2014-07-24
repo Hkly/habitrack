@@ -15,8 +15,20 @@
  */
 
 
+.navbar-brand:hover {
+  color: #7777777 !important;
+}
+
+
 @import "bootstrap";
 
+#logo {
+  // background-image: url("/assets/logoSym.png");
+  height: 30px;
+  width: 30px;
+  margin-top: -4px;
+  // display: inline-block;
+}
 
 .inverse-dropdown{
   background-color: #222;
@@ -31,4 +43,24 @@
   &>.divider {
     background-color: #000;
   }
+}
+
+.sign-in-row {
+  margin-top: 70px;
+}
+
+.alternate-login-link {
+  float: right;
+  padding-top: 15px;
+}
+
+.left-side-login {
+  background-image: url("/assets/tempLogo.png");
+  width: 371px;
+  height: 257px;
+
+}
+
+#sign_up_form {
+  padding-top: 30px;
 }

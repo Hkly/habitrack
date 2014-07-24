@@ -1,6 +1,6 @@
 <% if signed_in? %>
 
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-static-top navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">HabiTrack</a>
@@ -8,10 +8,24 @@
 
       <div class="pull-right">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= button_to "Sign out", session_url, method: :delete, class: "btn btn-danger" , id: "signout-btn"%></li>
+          <li><a href="#" class="nav-notifications">0</a></li>
+          <li class="dropdown">
+
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= current_user.username %>
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu inverse-dropdown">
+              <li><a href="#">Settings</a></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Sign out", session_url, method: :delete %>
+              </li>
+            </ul>
+
+          </li>
         </ul>
       </div>
-
     </div>
   </nav>
 

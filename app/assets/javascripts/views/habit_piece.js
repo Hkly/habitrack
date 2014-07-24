@@ -1,7 +1,7 @@
 HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   template: JST['habits/piece'],
-  tagName: "ul",
-  
+  className: "habit-piece",
+
   render: function() {
     var renderedContent = this.template({
       habit: this.model

@@ -15,12 +15,9 @@
  */
 
 
-.navbar-brand:hover {
-  color: #7777777 !important;
-}
-
-
 @import "bootstrap";
+
+// *** navbar ***
 
 #logo {
   // background-image: url("/assets/logoSym.png");
@@ -45,6 +42,8 @@
   }
 }
 
+// *** signin/login pages ***
+
 .sign-in-row {
   margin-top: 70px;
 }
@@ -63,4 +62,10 @@
 
 #sign_up_form {
   padding-top: 30px;
+}
+
+// *** habit views ***
+
+.habit-piece {
+  border: thin solid black;
 }

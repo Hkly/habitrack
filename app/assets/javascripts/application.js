@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializejson.min.js
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require backbone.TriggerHappy
 //= require habitrack_app
 //= require_tree ../templates
 //= require_tree ./utils

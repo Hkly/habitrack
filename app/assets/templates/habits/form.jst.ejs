@@ -6,34 +6,40 @@
          name="title"
          value="<%= habit.escape('title')%>">
 </div>
-<div class="form-group">
+
+<div class="form-inline">
+  <div class="form-group">
+    <label for="habit-often">How often</label>
+    <select name="num_days_per_week" class="form-control" id="habit-often">
+      <option value=1 <%= habit.get('num_days_per_week') === 1 || !habit.get('num_days_per_week') ? "selected" : "" %>>1 day a week</option>
+      <option value=2 <%= habit.get('num_days_per_week') === 2 ? "selected" : "" %>>2 days a week</option>
+      <option value=3 <%= habit.get('num_days_per_week') === 3 ? "selected" : "" %>>3 days a week</option>
+      <option value=4 <%= habit.get('num_days_per_week') === 4 ? "selected" : "" %>>4 days a week</option>
+      <option value=5 <%= habit.get('num_days_per_week') === 5 ? "selected" : "" %>>5 days a week</option>
+      <option value=6 <%= habit.get('num_days_per_week') === 6 ? "selected" : "" %>>6 days a week</option>
+      <option value=7 <%= habit.get('num_days_per_week') === 7 ? "selected" : "" %>>7 days a week</option>
+    </select>
+  </div>
+
+  <div class="form-group weight-selection">
   <label for="habit_weight">Weight</label>
   <div class="btn-group" data-toggle="buttons">
     <label class="btn btn-default">
-      <input type="radio" name="weight" id="habit_weight" value="heavy" <%= habit.get('weight') === "heavy" ? "checked" : "" %>> H
+      <input type="radio" name="weight" value="heavy" <%= habit.get('weight') === "heavy" ? "checked" : "" %>> H
     </label>
     <label class="btn btn-default active">
-      <input type="radio" name="weight" id="habit_weight" value="medium" <%= habit.get('weight') === "medium" || !habit.get('weight') ? "checked" : "" %>> M
+      <input type="radio" name="weight" value="medium" <%= habit.get('weight') === "medium" || !habit.get('weight') ? "checked" : "" %>> M
     </label>
     <label class="btn btn-default">
-      <input type="radio" name="weight" id="habit_weight" value="light" <%= habit.get('weight') === "light" ? "checked" : "" %>> L
+      <input type="radio" name="weight" value="light" <%= habit.get('weight') === "light" ? "checked" : "" %>> L
     </label>
   </div>
 </div>
-<div class="form-group">
-  <label for="habit-often">How often</label>
-  <select name="num_days_per_week" class="form-control" id="habit-often">
-    <option value=1 <%= habit.get('num_days_per_week') === 1 || !habit.get('num_days_per_week') ? "selected" : "" %>>1 day a week</option>
-    <option value=2 <%= habit.get('num_days_per_week') === 2 ? "selected" : "" %>>2 days a week</option>
-    <option value=3 <%= habit.get('num_days_per_week') === 3 ? "selected" : "" %>>3 days a week</option>
-    <option value=4 <%= habit.get('num_days_per_week') === 4 ? "selected" : "" %>>4 days a week</option>
-    <option value=5 <%= habit.get('num_days_per_week') === 5 ? "selected" : "" %>>5 days a week</option>
-    <option value=6 <%= habit.get('num_days_per_week') === 6 ? "selected" : "" %>>6 days a week</option>
-    <option value=7 <%= habit.get('num_days_per_week') === 7 ? "selected" : "" %>>7 days a week</option>
-  </select>
 </div>
-<button class="btn btn-primary habit-save-btn">Save</button> <a href="#" class="cancel-link">cancel</a>
 
+<div class='save-selections'>
+<button class="btn btn-primary habit-save-btn">Save</button> <a href="#" class="cancel-link">cancel</a>
+</div>
 
 
 <!-- where should i be putting this? -->

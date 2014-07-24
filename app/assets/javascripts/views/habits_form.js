@@ -23,7 +23,7 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
           that.render();
         },
         error: function(errors) {
-
+          //I don't know, do something
         }
       });
     }

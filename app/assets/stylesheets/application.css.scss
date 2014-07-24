@@ -17,6 +17,10 @@
 
 @import "bootstrap";
 
+body {
+  color: #4e4e4e;
+}
+
 // *** alerts ***
 .alert {
   text-align: center;
@@ -73,12 +77,16 @@
 
 .habits {
   padding-bottom: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .habit-piece {
-  border: thin solid black;
+  background-color: #c6dbed;
+  color: #1b1b1b;
   border-radius: 5px;
-  padding: 5px;
+  padding: 15px;
+  margin-bottom: 1px;
   strong {
     font-size: 2em;
   }
@@ -87,6 +95,27 @@
   }
 }
 
+.habit-piece:hover {
+  background-color: #a8c8de;
+}
+
 .cancel-link {
   color: #c7254e;
+}
+
+// *** habit form ***
+
+.new-habit-form {
+  background-color: #c6dbed;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 1px;
+}
+
+.weight-selection {
+  margin-left: 20px;
+}
+
+.save-selections {
+  padding-top: 10px;
 }

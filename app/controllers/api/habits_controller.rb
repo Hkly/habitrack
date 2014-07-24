@@ -18,6 +18,12 @@ class Api::HabitsController < ApplicationController
 
   end
 
+  def destroy
+    @habit = Habit.find(params[:id])
+    @habit.delete
+    render json: @habit
+  end
+
   private
 
   def habits_params

@@ -73,4 +73,12 @@
 
 .habit-piece {
   border: thin solid black;
+  border-radius: 5px;
+  padding: 5px;
+  strong {
+    font-size: 2em;
+  }
+  .delete-habit-btn {
+    float: right;
+  }
 }

@@ -17,8 +17,9 @@
 
 @import "bootstrap";
 
-.main {
+body {
   color: #4e4e4e;
+  background-color: #ededed;
 
 }
 
@@ -83,7 +84,7 @@
 }
 
 .habit-piece {
-  background-color: #c6dbed;
+  background-color: #fafcff;
   color: #1b1b1b;
   border-radius: 3px;
   padding: 15px;
@@ -97,7 +98,7 @@
 }
 
 .habit-piece:hover {
-  background-color: #a8c8de;
+  background-color: #e2e2e2;
 }
 
 .cancel-link {

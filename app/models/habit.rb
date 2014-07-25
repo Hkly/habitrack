@@ -16,5 +16,6 @@ class Habit < ActiveRecord::Base
   validates :weight, presence: true, inclusion: %w(heavy medium light)
 
   belongs_to :user
+  has_many :habit_days
 
 end

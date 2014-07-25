@@ -1,6 +1,6 @@
 HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   template: JST['habits/piece'],
-  className: "habit-stuff",
+  className: "habit-piece",
 
   initialize: function() {
     this.listenTo(this.model, 'sync', this.render);

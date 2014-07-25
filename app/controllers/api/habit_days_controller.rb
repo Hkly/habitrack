@@ -1,4 +1,5 @@
 class Api::HabitDaysController < ApplicationController
+
   def create
     # these params might need to be fixed
     @habit = Habit.find(params[:id])

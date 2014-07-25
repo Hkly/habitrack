@@ -91,7 +91,7 @@
   strong {
     font-size: 2em;
   }
-  .delete-habit-btn {
+  .habit-btns {
     float: right;
   }
 }
@@ -104,24 +104,6 @@
   color: #c7254e;
 }
 
-// *** habit modals ***
-
-.modal-content {
-  background-color: #e3f4ff;
-  color: #1b1b1b;
-  .modal-header {
-    border-style: none;
-  }
-  .modal-body {
-    border-style: none;
-  }
-  .modal-footer {
-    border-style: none;
-  }
-  .edit-habit-btn {
-    display: inline-block;
-  }
-}
 
 // *** habit form ***
 

@@ -1,7 +1,21 @@
 
-
+<div class="habit-piece">
 <strong><%= habit.escape("title") %></strong>
-<button class='btn btn-danger delete-habit-btn hidden'>delete habit</button>
+
+<div class="habit-btns hidden">
+<button class="btn btn-primary btn-sm edit-habit-btn">
+   <span class="glyphicon glyphicon-pencil"></span>
+</button>
+<button class='btn btn-danger btn-sm delete-habit-btn'>delete</button>
+</div>
+
+<div class="edit-habit-form hidden">
+
+</div>
+
+
+</div>
+
 
 <div class="modal" id="<%="modal" + habit.id%>" tabindex="-1">
   <div class="modal-dialog">
@@ -12,15 +26,11 @@
           <span class="sr-only">Close</span>
         </button>
         <strong class="modal-title"><%= habit.escape("title") %> </strong>
-        <button class="btn btn-default btn-sm edit-habit-btn">
-           <span class="glyphicon glyphicon-pencil"></span>
-        </button>
+
       </div>
       <div class="modal-body">
         You made it to the modal body!
-        <div class="habit-edit-form">
 
-        </div>
       </div>
       <div class="modal-footer">
 

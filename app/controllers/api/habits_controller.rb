@@ -18,6 +18,16 @@ class Api::HabitsController < ApplicationController
 
   end
 
+  def update
+    @habit = Habit.find(params[:id])
+
+    if @habit.update_attributes(habits_params)
+      render json: @habit
+    else
+      render json: @habit.full_messages, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @habit = Habit.find(params[:id])
     @habit.delete

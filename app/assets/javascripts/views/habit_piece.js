@@ -1,25 +1,30 @@
 HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   template: JST['habits/piece'],
-  className: "habit-piece",
+  className: "habit-stuff",
 
   initialize: function() {
+    this.listenTo(this.model, 'sync', this.render);
 
+    var editFormView = new HabitrackApp.Views.HabitForm({
+      model: this.model,
+      collection: this.collection
+    });
+    this.addSubview('.edit-habit-form', editFormView);
   },
 
   events: {
-    "mouseenter": "showDelete",
-    "mouseleave": "hideDelete",
+    "mouseenter": "showButtons",
+    "mouseleave": "hideButtons",
     "click button.delete-habit-btn": "deleteHabit",
-    "mousedown": "openModal",
-    "click button.edit-habit-btn": "showEditForm"
+    "click button.edit-habit-btn": "toggleEditForm"
   },
 
-  showDelete: function(event) {
-    $(event.target).find('.delete-habit-btn').removeClass('hidden');
+  showButtons: function(event) {
+    $(event.target).find('.habit-btns').removeClass('hidden');
   },
 
-  hideDelete: function(event) {
-    $(event.target).find('.delete-habit-btn').addClass('hidden');
+  hideButtons: function(event) {
+    $(event.target).find('.habit-btns').addClass('hidden');
   },
 
   deleteHabit: function(event) {
@@ -32,13 +37,16 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
     });
   },
 
-  openModal: function(event) {
-    var modalId = "#modal" + this.model.id;
-    $(event.target).find(modalId).modal('toggle');
+  showEditForm: function(event) {
+    this.$el.find('.edit-habit-form').removeClass('hidden');
   },
 
-  showEditForm: function(event) {
-    console.log("clicked me!");
+  hideEditForm: function(event) {
+    this.$el.find('.edit-habit-form').addClass('hidden');
+  },
+
+  toggleEditForm: function(event) {
+    this.$el.find('.edit-habit-form').toggleClass('hidden');
   },
 
   render: function() {
@@ -46,7 +54,7 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
       habit: this.model
     });
     this.$el.html(renderedContent);
-
+    this.attachSubviews();
     return this;
   }
 });

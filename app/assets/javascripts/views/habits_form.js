@@ -1,9 +1,15 @@
 HabitrackApp.Views.HabitForm = Backbone.View.extend({
   template: JST['habits/form'],
   tagName: "form",
+  className: "habit-form",
 
   events: {
-    "submit": "createOrSaveHabit"
+    "submit": "createOrSaveHabit",
+    "click .cancel-link": "hideForm"
+  },
+
+  hideForm: function(event){
+    this.$el.parent().addClass('hidden');
   },
 
   createOrSaveHabit: function(event) {
@@ -14,9 +20,10 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
     if (habit.id) {
       habit.set(params);
       habit.save({}, {
-        success: function() {
+        success: function(updated_habit) {
           // what do i want to do on save?
           // close form view, re-render new info on modal
+
         }
       });
     } else {

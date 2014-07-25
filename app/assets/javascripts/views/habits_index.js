@@ -21,7 +21,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
 
   events: {
     "click button.add-new-habit": "showNewForm",
-    "click .cancel-link": "hideNewForm"
+    "click .cancel-link": "showAddButton"
   },
 
   showNewForm: function(event) {
@@ -29,8 +29,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
     this.$el.find('.add-new-habit').addClass('hidden');
   },
 
-  hideNewForm: function(event) {
-    this.$el.find('.new-habit-form').addClass('hidden');
+  showAddButton: function(event) {
     this.$el.find('.add-new-habit').removeClass('hidden');
   },
 
@@ -50,6 +49,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    console.log("index rerender")
     var renderedContent = this.template(); // do i need locals?
     this.$el.html(renderedContent);
     this.attachSubviews();

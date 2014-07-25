@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
 
   namespace :api, defaults: { format: :json } do
-    resources :habits, except: [:new]
+    resources :habits, except: [:new] do
+      resources :habit_days, only: [:new]
+    end
+    resources :habit_days, only: [:destroy]
   end
 
 end

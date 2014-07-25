@@ -22,6 +22,7 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
     var that = this;
     this.model.destroy({
       success: function() {
+        // wait what? why don't I need this?
         // that.collection.remove(that.model);
       }
     });

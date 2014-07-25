@@ -12,7 +12,13 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
     var params = this.$el.serializeJSON();
     var habit = this.model;
     if (habit.id) {
-      //save habit
+      habit.set(params);
+      habit.save({}, {
+        success: function() {
+          // what do i want to do on save?
+          // close form view, re-render new info on modal
+        }
+      });
     } else {
       habit.set(params);
       var that = this;

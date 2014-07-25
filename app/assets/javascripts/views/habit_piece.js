@@ -2,12 +2,16 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   template: JST['habits/piece'],
   className: "habit-piece",
 
+  initialize: function() {
+
+  },
+
   events: {
     "mouseenter": "showDelete",
     "mouseleave": "hideDelete",
     "click button.delete-habit-btn": "deleteHabit",
     "mousedown": "openModal",
-    "click button.edit-habit-btn": "addEditForm"
+    "click button.edit-habit-btn": "showEditForm"
   },
 
   showDelete: function(event) {
@@ -31,6 +35,10 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   openModal: function(event) {
     var modalId = "#modal" + this.model.id;
     $(event.target).find(modalId).modal('toggle');
+  },
+
+  showEditForm: function(event) {
+    console.log("clicked me!");
   },
 
   render: function() {

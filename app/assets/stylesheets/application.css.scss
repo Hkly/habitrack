@@ -117,14 +117,28 @@ body {
   :focus{
     outline: 0;
   }
+  .completed {
+    background-color: #94d29c;
+  }
+  .completed:hover {
+    background-color: #76d07c;
+  }
 }
 .btn-circle {
+  border: thin solid #4e4e4e;
+  background-color: #fafcff;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   text-align: center;
   padding: 6px 0;
   margin: 1px;
+  display:inline-block;
+}
+
+.btn-circle:hover{
+  background-color: #d5d5d5;
+  cursor: default;
 }
 
 // *** habit form ***

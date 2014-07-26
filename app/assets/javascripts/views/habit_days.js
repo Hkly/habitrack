@@ -3,7 +3,7 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
   className: "days-list",
 
   events: {
-    "click button": "createHabitDay"
+    "click .btn-circle": "createHabitDay"
   },
 
   createHabitDay: function(event) {
@@ -14,6 +14,7 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
     newHabitDay.save({habit: params}, {
       success: function(savedHabitDay) {
         that.collection.add(savedHabitDay);
+        $(event.currentTarget).addClass('completed');
       }
     });
   },

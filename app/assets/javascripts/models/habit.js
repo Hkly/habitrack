@@ -9,8 +9,8 @@ HabitrackApp.Models.Habit = Backbone.Model.extend({
   },
 
   parse: function(jsonResponse) {
-    if (jsonResponse.habitDays) {
-      this.habitDays().set(jsonResponse.habitDays, {parse: true});
+    if (jsonResponse.habit_days) {
+      this.habitDays().set(jsonResponse.habit_days, {parse: true});
       // delete habbitDays property from jsonResponse.
     }
     return jsonResponse;

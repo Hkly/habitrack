@@ -2,8 +2,27 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
   template: JST['habits/days'],
   className: "days-list",
 
+  initialize: function() {
+
+
+  },
+
+  addDots: function() {
+    var that = this;
+
+    // debugger
+    this.model.habitDays().each(function(habitDay) {
+      var doneDay = habitDay.get('day');
+      that.$el.find(".btn-circle[data-day='" + doneDay + "']").addClass("completed");
+    });
+  },
+
   events: {
-    "click .btn-circle": "createHabitDay"
+    "click .btn-circle": "toggleHabitDay"
+  },
+
+  toggleHabitDay: function(event) {
+
   },
 
   createHabitDay: function(event) {
@@ -23,7 +42,7 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
     var renderedContent = this.template();
 
     this.$el.html(renderedContent);
-
+    this.addDots();
     return this;
   }
 });

@@ -2,7 +2,7 @@ class Api::HabitDaysController < ApplicationController
 
   def create
     # these params might need to be fixed
-    @habit = Habit.find(params[:id])
+    @habit = Habit.find(params[:habit_id])
     @habit_day = @habit.habit_days.new(habit_params)
 
     if @habit_day.save

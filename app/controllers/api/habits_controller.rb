@@ -15,7 +15,7 @@ class Api::HabitsController < ApplicationController
   end
 
   def show
-
+    @habit = Habit.find(params[:id])
   end
 
   def update

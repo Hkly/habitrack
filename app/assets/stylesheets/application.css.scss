@@ -85,20 +85,23 @@ body {
 
 .habit-piece {
   background-color: #fafcff;
-  color: #1b1b1b;
+  color: #4D4D4D;
   border-radius: 3px;
-  padding: 15px;
   margin-bottom: 1px;
-  strong {
-    font-size: 2em;
+  padding: 15px 15px 15px 15px;
+  .title {
+    font-size: 1.5em;
+    display: inline-block;
+    padding-left: 10px;
   }
   .habit-btns {
     float: right;
+    padding-right: 15px;
   }
 }
 
 .habit-piece:hover {
-  background-color: #e2e2e2;
+  background-color: #f3f5f8;
 }
 
 .cancel-link {
@@ -106,11 +109,29 @@ body {
 }
 
 
+// *** habit days  ***
+.days-list {
+  list-style-type: none;
+  padding-top: 5px;
+  display: inline-block;
+  :focus{
+    outline: 0;
+  }
+}
+.btn-circle {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  margin: 1px;
+}
+
 // *** habit form ***
 
 .new-habit-form {
-  background-color: #c6dbed;
-  border-radius: 5px;
+  background-color: #fafcff;
+  border-radius: 3px;
   padding: 15px;
   margin-bottom: 1px;
 }

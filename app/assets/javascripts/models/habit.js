@@ -1,4 +1,10 @@
 HabitrackApp.Models.Habit = Backbone.Model.extend({
+  initialize: function() {
+    this.habitDays.url = function() {
+      return 'api/habits/' + this.id + '/habit_days';
+    };
+  },
+
   urlRoot: "api/habits",
 
   habitDays: function() {

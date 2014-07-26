@@ -6,9 +6,8 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :habits, except: [:new] do
-      resources :habit_days, only: [:create]
+      resources :habit_days, only: [:create, :destroy]
     end
-    resources :habit_days, only: [:destroy]
   end
 
 end

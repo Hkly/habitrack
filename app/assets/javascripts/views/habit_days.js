@@ -22,7 +22,11 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
   },
 
   toggleHabitDay: function(event) {
-
+    if ($(event.target).hasClass("completed")) {
+      this.deleteHabitDay(event);
+    } else {
+      this.createHabitDay(event);
+    }
   },
 
   createHabitDay: function(event) {
@@ -36,6 +40,19 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
         $(event.currentTarget).addClass('completed');
       }
     });
+  },
+
+  deleteHabitDay: function(event) {
+    var clickedDay = $(event.currentTarget).data('day');
+    var clickedHabitDayModel = this.model.habitDays().find(function(model) {
+      return model.get('day') == clickedDay;
+    });
+    // debugger
+    clickedHabitDayModel.destroy({
+      success: function(deletedHabit) {
+        $(event.currentTarget).removeClass('completed');
+      }
+    }, {model: this.model});
   },
 
   render: function() {

@@ -105,10 +105,6 @@ body {
   background-color: #f3f5f8;
 }
 
-.cancel-link {
-  color: #c7254e;
-}
-
 
 // *** habit days  ***
 .days-list {
@@ -144,6 +140,10 @@ body {
 
 // *** habit form ***
 
+.new-habit-area {
+  padding: 0px;
+}
+
 .new-habit-form {
   background-color: #fafcff;
   border-radius: 3px;
@@ -157,4 +157,17 @@ body {
 
 .save-selections {
   padding-top: 10px;
+}
+
+.cancel-link {
+  color: #c7254e;
+}
+
+
+// *** right-side ***
+
+.top-user-score {
+  background-color: #fafcff;
+  color: #4D4D4D;
+  border-radius: 3px;
 }

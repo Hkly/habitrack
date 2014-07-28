@@ -5,7 +5,6 @@ HabitrackApp.Models.HabitDay = Backbone.Model.extend({
   },
 
   urlRoot: function () {
-    // TODO: see if you need this.habit_day even
     
     if (!this.habit_day) {
       return "api/habits/" + this.get('habit_id') + "/habit_days";

@@ -98,6 +98,7 @@ h1 {
   border-radius: 3px;
   margin-bottom: 1px;
   padding: 15px 15px 15px 15px;
+  position: relative;
   .title {
     font-size: 1.5em;
     display: inline-block;
@@ -106,6 +107,13 @@ h1 {
   .habit-btns {
     float: right;
     padding-right: 15px;
+  }
+  .days {
+    display: inline-block;
+  }
+  .stats {
+    display: inline-block;
+    text-align: center;
   }
 }
 

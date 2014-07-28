@@ -10,7 +10,6 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
   addDots: function() {
     var that = this;
 
-    // debugger
     this.model.habitDays().each(function(habitDay) {
       var doneDay = habitDay.get('day');
       that.$el.find(".btn-circle[data-day='" + doneDay + "']").addClass("completed");

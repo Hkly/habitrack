@@ -25,8 +25,9 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   },
 
   showNewForm: function(event) {
-    this.$el.find('.new-habit-form').removeClass('hidden');
+    this.$el.find('.new-habit-form').removeClass('hidden').find('#habit_title').focus();
     this.$el.find('.add-new-habit').addClass('hidden');
+
   },
 
   showAddButton: function(event) {
@@ -55,7 +56,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
     this.attachSubviews();
 
     $('.habits').sortable();
-    
+
     return this;
   }
 });

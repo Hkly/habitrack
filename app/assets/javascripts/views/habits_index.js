@@ -53,6 +53,9 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
     var renderedContent = this.template(); // do i need locals?
     this.$el.html(renderedContent);
     this.attachSubviews();
+
+    $('.habits').sortable();
+    
     return this;
   }
 });

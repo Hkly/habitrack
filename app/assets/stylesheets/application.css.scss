@@ -24,6 +24,10 @@ body {
 
 }
 
+h1 {
+  color: #9f9f9f;
+}
+
 // .View {
 //   border: thin solid blue;
 // }
@@ -174,4 +178,20 @@ body {
   background-color: #fafcff;
   color: #4D4D4D;
   border-radius: 3px;
+}
+
+
+.this-week {
+  text-align: center;
+  display: inline-block;
+  .score {
+    font-size: 3em;
+  }
+}
+.month-avg {
+  text-align: center;
+  display: inline-block;
+  .score {
+    font-size: 3em;
+  }
 }

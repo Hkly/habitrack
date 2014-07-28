@@ -7,12 +7,19 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
     return score;
   },
 
+  monthScore: function() {
+    var score = 0;
+
+    return score;
+  },
+
   render: function() {
     var renderedContent = this.template();
 
     this.$el.html(renderedContent);
 
-    this.$el.find('.this-week').append(this.weekScore());
+    this.$el.find('.this-week').append("<span class='score'>" + this.weekScore() + "</span>");
+    this.$el.find('.month-avg').append("<span class='score'>" + this.monthScore() + "</span>");
 
     return this;
   }

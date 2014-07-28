@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true}
 
   has_many :habits
+  has_many :habit_days, through: :habits, source: :habit_days
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

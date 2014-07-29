@@ -25,7 +25,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
 
   events: {
     "click button.add-new-habit": "showNewForm",
-    "click .cancel-link": "showAddButton" // TODO: how to make only for .save-selections 
+    "click .cancel-link": "showAddButton" // TODO: how to make only for .save-selections
   },
 
   showNewForm: function(event) {
@@ -40,7 +40,8 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
 
   addHabit: function(habit) {
     var habitPiece = new HabitrackApp.Views.HabitPiece({
-      model: habit
+      model: habit,
+      pointsPerUnit: this.calculatePointsPerUnit()
     });
     this.addSubview('.habits', habitPiece);
   },
@@ -51,6 +52,15 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
       return view.model.id == habit.id;
     });
     this.removeSubview('.habits', view);
+  },
+
+  calculatePointsPerUnit: function() {
+    var totalUnits = 0;
+    this.collection.each(function(habit) {
+      totalUnits += habit.get('weight');
+    });
+
+    return 100 / totalUnits;
   },
 
   render: function () {

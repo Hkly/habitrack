@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728214458) do
+ActiveRecord::Schema.define(version: 20140728214229) do
 
   create_table "habit_days", force: true do |t|
     t.integer  "habit_id",   null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20140728214458) do
     t.integer  "weight",            limit: 255, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "weighted_points"
   end
 
   add_index "habits", ["title"], name: "index_habits_on_title"

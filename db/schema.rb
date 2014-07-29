@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140728214229) do
     t.string   "title",                         null: false
     t.integer  "user_id",                       null: false
     t.integer  "num_days_per_week",             null: false
-    t.integer  "weight",            limit: 255, null: false
+    t.integer  "weight",                        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,7 +3,6 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   className: "habit-piece",
 
   initialize: function(options) {
-    // this.pointsPerUnit = options.pointsPerUnit;
 
     this.listenTo(this.model, 'sync', this.render);
 
@@ -21,9 +20,7 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
 
     var habitStatsView = new HabitrackApp.Views.HabitStats({
       model: this.model,
-      habitDays: this.model.habitDays(),
-      
-      pointsPerUnit: options.pointsPerUnit
+      collection: this.model.habitDays()
     });
     this.addSubview('.stats', habitStatsView);
   },
@@ -56,8 +53,6 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   toggleEditForm: function(event) {
     this.$el.find('.edit-habit-form').toggleClass('hidden').find('#habit_title').focus();
   },
-
-
 
   render: function() {
     var renderedContent = this.template({

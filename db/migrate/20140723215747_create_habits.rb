@@ -4,7 +4,7 @@ class CreateHabits < ActiveRecord::Migration
       t.string :title, null: false
       t.integer :user_id, null: false
       t.integer :num_days_per_week, null: false
-      t.string :weight, null: false
+      t.integer :weight, null: false
 
       t.timestamps
     end

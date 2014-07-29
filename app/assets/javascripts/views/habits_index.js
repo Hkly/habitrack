@@ -64,7 +64,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    console.log("index rerender")
+    console.log("index rerender!!")
     var renderedContent = this.template(); // do i need locals?
     this.$el.html(renderedContent);
     this.attachSubviews();

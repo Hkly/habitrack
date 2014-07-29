@@ -17,7 +17,9 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
     });
     this.addSubview('.new-habit-form', newFormView);
 
-    var userSideView = new HabitrackApp.Views.UserSide();
+    var userSideView = new HabitrackApp.Views.UserSide({
+      collection: this.collection
+    });
     this.addSubview('.right-side', userSideView);
   },
 

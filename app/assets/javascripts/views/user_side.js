@@ -5,7 +5,9 @@ HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
     var mainScoreView = new HabitrackApp.Views.UserMainScore();
     this.addSubview('.main-score', mainScoreView);
 
-    var reportGraphsView = new HabitrackApp.Views.UserReportGraphs();
+    var reportGraphsView = new HabitrackApp.Views.UserReportGraphs({
+      collection: this.collection
+    });
     this.addSubview('.report-graphs', reportGraphsView);
 
     var friendsListView = new HabitrackApp.Views.UserFriendList();

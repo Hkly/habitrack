@@ -17,11 +17,11 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
       model: this.model
     });
     this.addSubview('.days', habitDaysView);
-
     var habitStatsView = new HabitrackApp.Views.HabitStats({
       model: this.model,
-      collection: this.model.habitDays()
-    });
+      collection: this.collection,
+      habitDays: this.model.habitDays()
+      });
     this.addSubview('.stats', habitStatsView);
   },
 

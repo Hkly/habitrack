@@ -8,6 +8,14 @@ HabitrackApp.Collections.Habits = Backbone.Collection.extend({
       total += habit.get('weight');
     });
     return total;
+  },
+
+  totalPoints: function() {
+    var total = 0;
+    this.each(function(habit) {
+      total +=  habit.currentPoints();
+    });
+    return total;
   }
 
 });

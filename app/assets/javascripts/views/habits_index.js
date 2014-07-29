@@ -41,7 +41,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   addHabit: function(habit) {
     var habitPiece = new HabitrackApp.Views.HabitPiece({
       model: habit,
-      pointsPerUnit: this.calculatePointsPerUnit()
+      collection: this.collection
     });
     this.addSubview('.habits', habitPiece);
   },
@@ -52,15 +52,6 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
       return view.model.id == habit.id;
     });
     this.removeSubview('.habits', view);
-  },
-
-  calculatePointsPerUnit: function() {
-    var totalUnits = 0;
-    this.collection.each(function(habit) {
-      totalUnits += habit.get('weight');
-    });
-
-    return 100 / totalUnits;
   },
 
   render: function () {

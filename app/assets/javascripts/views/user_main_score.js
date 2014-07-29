@@ -1,25 +1,16 @@
 HabitrackApp.Views.UserMainScore = Backbone.View.extend({
   template: JST['sidebar/main_score'],
 
-  weekScore: function() {
-    var score = 0;
-
-    return score;
-  },
-
-  monthScore: function() {
-    var score = 0;
-
-    return score;
+  initialize: function() {
+    this.listenTo(this.collection, 'sync change', this.render);
   },
 
   render: function() {
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      habits: this.collection
+    });
 
     this.$el.html(renderedContent);
-
-    this.$el.find('.this-week').append("<span class='score'>" + this.weekScore() + "</span>");
-    this.$el.find('.month-avg').append("<span class='score'>" + this.monthScore() + "</span>");
 
     return this;
   }

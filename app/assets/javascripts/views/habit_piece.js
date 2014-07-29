@@ -49,16 +49,8 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
     });
   },
 
-  showEditForm: function(event) {
-    this.$el.find('.edit-habit-form').removeClass('hidden');
-  },
-
-  hideEditForm: function(event) {
-    this.$el.find('.edit-habit-form').addClass('hidden');
-  },
-
   toggleEditForm: function(event) {
-    this.$el.find('.edit-habit-form').toggleClass('hidden');
+    this.$el.find('.edit-habit-form').toggleClass('hidden').find('#habit_title').focus();
   },
 
   render: function() {

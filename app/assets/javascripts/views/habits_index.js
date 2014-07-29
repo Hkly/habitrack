@@ -25,7 +25,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
 
   events: {
     "click button.add-new-habit": "showNewForm",
-    "click .cancel-link": "showAddButton"
+    "click .cancel-link": "showAddButton" // TODO: how to make only for .save-selections 
   },
 
   showNewForm: function(event) {

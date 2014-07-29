@@ -2,7 +2,7 @@
 <strong>
 <%= habitDays.length %> of
 <%= habit.escape('num_days_per_week') %>
-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 W:
-<%= habit.weightedPoints() %>
+<%= Math.floor(habit.weightedPoints()) %>
 </strong>

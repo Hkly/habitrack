@@ -2,14 +2,15 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
   template: JST["sidebar/report_graphs"],
 
   initialize: function() {
-    this.listenTo(this.collection, 'sync', this.createGraph);
+    this.listenTo(this.collection, 'sync', this.createGraph); //create graph once, never rerender
+    this.listenTo(this.collection, 'sync remove change_habit_days', this.updateNow);
   },
 
   createGraph: function() {
 
     var ctx = document.getElementById("main-chart").getContext("2d");
     var data = {
-    labels: ["wk1", "wk2", "wk3", "wk4", "wk5", "wk6", "wk6", "wk6", "wk6", "wk6", "wk6", "wk6", "wk6", ],
+    labels: ["wk1", "wk2", "wk3", "wk4", "wk5", "wk6", "wk6", "wk6", "wk6", "wk6", "wk6", "wk6", "now"],
     datasets: [
         {
             label: "My First dataset",
@@ -27,6 +28,10 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
       barValueSpacing: 1,
       showScale: false
       });
+  },
+
+  updateNow: function() {
+    
   },
 
   render: function() {

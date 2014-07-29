@@ -2,11 +2,6 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
   template: JST['habits/days'],
   className: "days-list",
 
-  initialize: function() {
-
-
-  },
-
   addDots: function() {
     var that = this;
 
@@ -46,7 +41,6 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
     var clickedHabitDayModel = this.model.habitDays().find(function(model) {
       return model.get('day') == clickedDay;
     });
-    // debugger
     clickedHabitDayModel.destroy({
       success: function(deletedHabit) {
         $(event.currentTarget).removeClass('completed');

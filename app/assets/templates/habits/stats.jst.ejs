@@ -1,8 +1,8 @@
 <span class="glyphicon glyphicon-record"></span>
 <strong>
 <%= numDays %> of
-<%= habit.get('num_days_per_week') %>
+<%= habit.escape('num_days_per_week') %>
 
-W: 
-<%= habit.get('weighted_points') %>
+W:
+<%= habit.weightedPoints() %>
 </strong>

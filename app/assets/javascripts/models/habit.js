@@ -20,5 +20,9 @@ HabitrackApp.Models.Habit = Backbone.Model.extend({
       // delete habbitDays property from jsonResponse.
     }
     return jsonResponse;
+  },
+
+  weightedPoints: function() {
+    return (100 / this.collection.totalUnits()) * this.get('weight');
   }
 });

@@ -14,10 +14,10 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
     datasets: [
         {
             label: "My First dataset",
-            fillColor: "rgba(113, 140, 221, 0.5)",
-            strokeColor: "rgba(114, 147, 222, 0.85)",
+            fillColor: "rgba(64, 124, 189, 0.82)",
+            strokeColor: "rgba(23, 61, 111, 0.79)",
             highlightFill: "rgba(56, 108, 232, 0.5)",
-            highlightStroke: "rgba(114, 147, 222, 0.85)",
+            highlightStroke: "rgba(23, 61, 111, 0.79)",
             data: [65, 59, 80, 81, 56, 55, 75, 77, 78, 90, 85, 88, 92]
         }
       ]
@@ -31,7 +31,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
   },
 
   updateNow: function() {
-    
+
   },
 
   render: function() {

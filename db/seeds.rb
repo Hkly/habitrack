@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+# demo_user = User.create(username: "DemoBob", email: "bob@demoman.com", password: "bobthedemoman")
+#
+# habit1 = demo_user.Habit.create(title: "Do pushups", )

@@ -25,7 +25,8 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
 
   events: {
     "click button.add-new-habit": "showNewForm",
-    "click .cancel-link": "showAddButton" // TODO: how to make only for .save-selections
+    "click .cancel-link": "showAddButton", // TODO: how to make only for .save-selections
+    "click button.tour-btn": "launchTour"
   },
 
   showNewForm: function(event) {
@@ -52,6 +53,10 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
       return view.model.id == habit.id;
     });
     this.removeSubview('.habits', view);
+  },
+
+  launchTour: function(){
+
   },
 
   render: function () {

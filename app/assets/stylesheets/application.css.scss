@@ -85,6 +85,26 @@ h1 {
   padding-top: 30px;
 }
 
+// *** tour ***
+.habit-h1 {
+  display: inline-block;
+}
+#tour-btn {
+  display: inline-block;
+  margin-right: 0;
+  margin-left: auto;
+  font-weight: bold;
+  width: 25px;
+  height: 25px;
+  padding: 1px 0;
+  text-align: center;
+  float: right;
+}
+
+#tour-btn:focus{
+  outline: none;
+}
+
 // *** habit views ***
 
 .habits {
@@ -129,9 +149,6 @@ h1 {
   list-style-type: none;
   padding-top: 5px;
   display: inline-block;
-  :focus{
-    outline: 0;
-  }
   .completed {
     background-color: #94d29c;
   }

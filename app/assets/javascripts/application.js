@@ -15,6 +15,7 @@
 //= require jquery.ui.sortable
 //= require jquery.serializejson.min.js
 //= require Chart
+//= require shepherd.min.js
 //= require bootstrap
 //= require underscore
 //= require backbone

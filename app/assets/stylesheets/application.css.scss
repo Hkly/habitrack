@@ -223,12 +223,17 @@ h1 {
 
 .main-score {
   height: 110px;
+  padding-left: 0;
+  padding-top: 0;
 }
 
 .user-avatar {
   width: 100px;
-  position: relative;
   display:inline-block;
+  > img {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
 }
 
 
@@ -236,7 +241,6 @@ h1 {
   color: #173A6F;
   text-align: center;
   display: inline-block;
-  position: relative;
   h3 {
     color: #345e7a;
   }
@@ -248,7 +252,6 @@ h1 {
 .month-avg {
   text-align: center;
   display: inline-block;
-  position: relative;
   .score {
     font-size: 2.75em;
   }

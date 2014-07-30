@@ -38,7 +38,6 @@ class User < ActiveRecord::Base
   def gravatar
     gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-    image_tag(gravatar_url, alt: self.username, class: "gravatar")
   end
 
   def is_password?(password)

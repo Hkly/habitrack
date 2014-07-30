@@ -4,7 +4,8 @@
 
 <script>
   $(document).ready(function(){
-    window.currentUserAvatarUrl = "<%= current_user.gravatar %>"; //if i need current user
+    window.currentUserAvatarUrl = "<%= current_user.gravatar %>";
+    window.currentUserId = <%= current_user.id %>;
 
     HabitrackApp.initialize();
   });

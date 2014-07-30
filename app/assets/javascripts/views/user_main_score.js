@@ -12,7 +12,7 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
     var options = {
       useEasing : true,
       useGrouping : false
-  };
+    };
     var score = new countUp("current-score", 0, Math.floor(this.collection.totalPoints()), 0, 1.5, options);
     score.start();
   },

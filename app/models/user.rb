@@ -25,9 +25,22 @@ class User < ActiveRecord::Base
 
   has_many :created_friendships, foreign_key: :init_friend_id, class_name: "Friendship"
   has_many :recieved_friendships, foreign_key: :recp_friend_id, class_name: "Friendship"
-  
+
   has_many :friends, through: :created_friendships, source: :recp_user
 
+
+  def gravatar
+    gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+  end
+
+  def currentTotal
+    total_units = 0
+    self.habits.each do |habit|
+      total_units += habit.weight
+    end
+    # let's do this later
+  end
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
@@ -39,11 +52,6 @@ class User < ActiveRecord::Base
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64
-  end
-
-  def gravatar
-    gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
   end
 
   def is_password?(password)

@@ -1,9 +1,5 @@
 HabitrackApp.Models.Habit = Backbone.Model.extend({
   initialize: function() {
-    // this.habitDays.url = function() {
-    //   return 'api/habits/' + this.id + '/habit_days';
-    // };
-
     this.listenTo(this.habitDays(), 'add remove', this.trigger.bind(this, 'change_habit_days'));
   },
 

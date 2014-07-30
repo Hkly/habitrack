@@ -18,7 +18,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
             strokeColor: "rgba(23, 61, 111, 0.79)",
             highlightFill: "rgba(56, 108, 232, 0.5)",
             highlightStroke: "rgba(23, 61, 111, 0.79)",
-            data: [65, 59, 80, 81, 56, 55, 75, 77, 78, 90, 85, 88, 92]
+            data: [65, 59, 80, 81, 56, 55, 75, 77, 78, 90, 85, 88, 0]
         }
       ]
     };
@@ -28,10 +28,14 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
       barValueSpacing: 1,
       showScale: false
       });
+
+    this.mainChart = myBarChart;
   },
 
   updateNow: function() {
 
+    this.mainChart.datasets[0].bars[12].value = this.collection.totalPoints();
+    this.mainChart.update();
   },
 
   render: function() {

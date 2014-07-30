@@ -92,14 +92,12 @@ h1 {
 }
 #tour-btn {
   display: inline-block;
-  margin-right: 0;
-  margin-left: auto;
+  margin-top: 20px;
   font-weight: bold;
   width: 25px;
   height: 25px;
   padding: 1px 0;
   text-align: center;
-  float: right;
 }
 
 #tour-btn:focus{
@@ -211,7 +209,7 @@ h1 {
   background-color: #fafcff;
   color: #4D4D4D;
   border-radius: 3px;
-  padding: 1px 15px 0 15px;
+  padding: 0px 15px 0 15px;
   h3 {
     text-transform: uppercase;
     font-size: 10px;
@@ -224,12 +222,12 @@ h1 {
 .main-score {
   height: 110px;
   padding-left: 0;
-  padding-top: 0;
 }
 
 .user-avatar {
   width: 100px;
   display:inline-block;
+  float: left;
   > img {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -241,6 +239,9 @@ h1 {
   color: #173A6F;
   text-align: center;
   display: inline-block;
+  padding-left: 23px;
+  padding-right: 23px;
+  padding-top: 10px;
   h3 {
     color: #345e7a;
   }
@@ -252,7 +253,12 @@ h1 {
 .month-avg {
   text-align: center;
   display: inline-block;
+  padding-top: 10px;
   .score {
     font-size: 2.75em;
   }
+}
+
+.report-graphs {
+  padding-top: 1px;
 }

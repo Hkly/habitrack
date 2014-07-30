@@ -1,7 +1,5 @@
 HabitrackApp.Models.User = Backbone.Model.extend({
-  urlRoot: function() {
-    return "users/" + window.currentUserId + ".json";
-  },
+  urlRoot: "/api/users",
 
   friends: function() {
     if (!this._friends) {

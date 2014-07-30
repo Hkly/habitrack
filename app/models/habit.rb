@@ -9,7 +9,6 @@
 #  weight            :integer          not null
 #  created_at        :datetime
 #  updated_at        :datetime
-#  weighted_points   :integer
 #
 
 class Habit < ActiveRecord::Base

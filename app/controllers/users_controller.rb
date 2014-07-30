@@ -20,7 +20,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
+    @current_user
+    @friends = @current_user.friends
+    render :show
   end
 
   def update

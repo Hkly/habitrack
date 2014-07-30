@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728214229) do
+ActiveRecord::Schema.define(version: 20140730172833) do
+
+  create_table "friendships", force: true do |t|
+    t.integer  "init_friend_id", null: false
+    t.integer  "recp_friend_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendships", ["recp_friend_id"], name: "index_friendships_on_recp_friend_id"
 
   create_table "habit_days", force: true do |t|
     t.integer  "habit_id",   null: false
@@ -23,10 +32,10 @@ ActiveRecord::Schema.define(version: 20140728214229) do
   add_index "habit_days", ["habit_id"], name: "index_habit_days_on_habit_id"
 
   create_table "habits", force: true do |t|
-    t.string   "title",                         null: false
-    t.integer  "user_id",                       null: false
-    t.integer  "num_days_per_week",             null: false
-    t.integer  "weight",                        null: false
+    t.string   "title",             null: false
+    t.integer  "user_id",           null: false
+    t.integer  "num_days_per_week", null: false
+    t.integer  "weight",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

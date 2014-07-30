@@ -23,6 +23,12 @@ class User < ActiveRecord::Base
   has_many :habits
   has_many :habit_days, through: :habits, source: :habit_days
 
+  has_many :created_friendships, foreign_key: :init_friend_id, class_name: "Friendship"
+  has_many :recieved_friendships, foreign_key: :recp_friend_id, class_name: "Friendship"
+  
+  has_many :friends, through: :created_friendships, source: :recp_user
+
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     if user.nil? || !user.is_password?(password)

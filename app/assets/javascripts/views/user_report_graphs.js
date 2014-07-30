@@ -2,7 +2,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
   template: JST["sidebar/report_graphs"],
 
   initialize: function() {
-    this.listenTo(this.collection, 'sync', this.createGraph); //create graph once, never rerender
+    this.listenToOnce(this.collection, 'sync', this.createGraph); //create graph once, never rerender
     this.listenTo(this.collection, 'sync remove change_habit_days', this.updateNow);
   },
 
@@ -18,7 +18,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
             // strokeColor: "rgba(23, 61, 111, 0.79)",
             highlightFill: "rgb(67, 140, 204)",
             // highlightStroke: "rgba(23, 61, 111, 0.79)",
-            data: [65, 59, 80, 81, 56, 55, 75, 77, 78, 90, 85, 88, 0]
+            data: [67, 59, 80, 81, 56, 55, 64, 77, 82, 90, 85, 88, 0]
         }
       ]
     };

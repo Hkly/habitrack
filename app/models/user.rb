@@ -35,6 +35,12 @@ class User < ActiveRecord::Base
     SecureRandom::urlsafe_base64
   end
 
+  def gravatar
+    gravatar_id = Digest::MD5::hexdigest(self.email.downcase)
+    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
+    image_tag(gravatar_url, alt: self.username, class: "gravatar")
+  end
+
   def is_password?(password)
       BCrypt::Password.new(self.password_digest).is_password?(password)
   end

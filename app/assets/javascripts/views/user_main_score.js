@@ -3,9 +3,23 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, 'sync remove change_habit_days', this.render);
+    this.listenToOnce(this.collection, 'sync', this.animateScore);
+    this.listenTo(this.collection, 'sync remove change_habit_days', this.updateScore);
 
   },
 
+  animateScore: function() {
+    var options = {
+      useEasing : true,
+      useGrouping : true
+  };
+    var score = new countUp("current-score", 0, Math.floor(this.collection.totalPoints()), 0, 2, options);
+    score.start();
+  },
+
+  updateScore: function() {
+    $('#current-score').text(Math.floor(this.collection.totalPoints()));
+  },
 
   render: function() {
     var renderedContent = this.template({

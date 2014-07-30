@@ -26,7 +26,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   events: {
     "click button.add-new-habit": "showNewForm",
     "click .cancel-link": "showAddButton", // TODO: how to make only for .save-selections
-    "click button.tour-btn": "launchTour"
+    "click button#tour-btn": "launchTour"
   },
 
   showNewForm: function(event) {
@@ -56,7 +56,70 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   },
 
   launchTour: function(){
+    var tour = new Shepherd.Tour({
+      defaults: {
+        classes: 'shepherd-theme-arrows',
+        scrollTo: true,
+        showCancelLink: true
+      }
+    });
 
+    tour.addStep('step1', {
+      title: 'Welcome to HabiTrack!',
+      text: 'This would help you get started with this application!',
+      attachTo: '.navbar bottom',
+      classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
+      buttons: [
+        {
+          text: 'Exit',
+          classes: 'shepherd-button-secondary',
+          action: function() {
+            return tour.hide();
+          }
+        }, {
+          text: 'Next',
+          action: tour.next,
+          classes: 'shepherd-button-example-primary'
+        }
+      ]
+    });
+
+    tour.addStep('step2', {
+      title: 'Add a Habit',
+      text: 'Add new habits here!',
+      attachTo: '#tour-2 right',
+      classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
+      buttons: [
+        {
+          text: 'Exit',
+          classes: 'shepherd-button-secondary',
+          action: function() {
+            return tour.hide();
+          }
+        }, {
+          text: 'Next',
+          action: tour.next,
+          classes: 'shepherd-button-example-primary'
+        }
+      ]
+    });
+
+    tour.addStep('stepLast', {
+      text: 'Click here if you ever want the grand tour again!',
+      attachTo: '#tour-btn bottom',
+      classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
+      buttons: [
+        {
+          text: 'Exit',
+          classes: 'shepherd-button-secondary',
+          action: function() {
+            return tour.hide();
+          }
+        }
+      ]
+    });
+
+    tour.start();
   },
 
   render: function () {

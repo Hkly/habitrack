@@ -136,10 +136,9 @@ h1 {
     width: 248px;
     text-align: right;
   }
-}
-
-.habit-piece:hover {
-  background-color: #f3f5f8;
+  &:hover {
+    background-color: #f3f5f8;
+  }
 }
 
 
@@ -150,9 +149,9 @@ h1 {
   display: inline-block;
   .completed {
     background-color: #94d29c;
-  }
-  .completed:hover {
-    background-color: #76d07c;
+    &:hover {
+      background-color: #76d07c;
+    }
   }
 }
 .btn-circle {
@@ -165,11 +164,10 @@ h1 {
   padding: 6px 0;
   margin: 1px;
   display:inline-block;
-}
-
-.btn-circle:hover{
-  background-color: #d5d5d5;
-  cursor: default;
+  &:hover{
+    background-color: #d5d5d5;
+    cursor: default;
+  }
 }
 
 // *** habit form ***
@@ -228,7 +226,7 @@ h1 {
   width: 100px;
   display:inline-block;
   float: left;
-  > img {
+  & > img {
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
   }

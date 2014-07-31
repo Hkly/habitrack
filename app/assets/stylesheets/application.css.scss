@@ -276,13 +276,13 @@ h1 {
     color: #aaaaaa;
     &:hover {
       color: #5a5a5a;
-      cursor: default;
+      cursor: pointer;
     }
   }
   .friends-list {
     padding-top: 15px;
     padding-bottom: 15px;
-    .friend-search {
+    #friend-search {
       padding-bottom: 5px;
     }
   }

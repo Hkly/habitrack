@@ -1,1 +1,1 @@
-json.users @users, :id, :username, :gravatar
+json.array! @users, :id, :username, :gravatar

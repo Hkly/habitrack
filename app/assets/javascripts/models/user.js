@@ -11,7 +11,7 @@ HabitrackApp.Models.User = Backbone.Model.extend({
   parse: function(jsonResponse) {
     if (jsonResponse.friends) {
       this.friends().set(jsonResponse.friends, {parse: true});
-      // delete habbitDays property from jsonResponse.
+      // delete friends property from jsonResponse.
     }
     return jsonResponse;
   }

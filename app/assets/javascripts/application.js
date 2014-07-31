@@ -14,13 +14,13 @@
 //= require jquery_ujs
 //= require jquery.ui.sortable
 //= require jquery.serializejson.min.js
+//= require typeahead.jquery.js
 //= require Chart
 //= require shepherd.min.js
 //= require countUp.min.js
 //= require bootstrap
 //= require underscore
 //= require backbone
-//= require backbone.TriggerHappy
 //= require habitrack_app
 //= require_tree ../templates
 //= require_tree ./utils
@@ -28,4 +28,5 @@
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
+//= require_tree ./tour
 //= require_tree .

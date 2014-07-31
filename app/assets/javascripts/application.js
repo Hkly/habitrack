@@ -21,6 +21,7 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require backbone.TriggerHappy.js
 //= require habitrack_app
 //= require_tree ../templates
 //= require_tree ./utils

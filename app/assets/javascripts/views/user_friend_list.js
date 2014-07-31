@@ -2,23 +2,34 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
   template: JST['sidebar/friends_list'],
 
   initialize: function() {
-    this.friends = this.getFriends();
-    this.listenTo(this.getFriends(), 'add', this.addFriendListPiece);
+    this.userModel = HabitrackApp.Collections.users.getOrFetch(window.currentUserId);
+    this.listenTo(this.userModel, 'sync', this.addFriendList);
+    this.listenTo(this.userModel.friends(), 'sync', this.addFriendListPiece);
 
+  },
+
+  addFriendList: function() {
     var that = this;
-    this.friends.each(function(friend) {
+    this.userModel.friends().each( function(friend) {
       that.addFriendListPiece(friend);
     });
   },
 
+  addFriendListPiece: function(friend) {
+    var friendListPiece = new HabitrackApp.Views.FriendListPiece({
+      model: friend
+    });
+    this.addSubview('#list-o-friends', friendListPiece);
+  },
+
   events: {
-    "click button#friend-search-btn": "showSearchForm",
+    "click #friend-search-btn": "showSearchForm",
     "submit": "createFriendships"
   },
 
   showSearchForm: function(event) {
-    $(event.currentTarget).parent().find('#friend-search-form').removeClass('hidden');
-    $(event.currentTarget).addClass('hidden');
+    $(event.currentTarget).parent().find('#friend-search-form').toggleClass('hidden');
+    $(event.currentTarget).parent().find('input.typeahead').focus();
   },
 
   createFriendships: function(event) {
@@ -27,17 +38,19 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
     var friendship = new HabitrackApp.Models.Friendship();
 
     friendship.set(params);
+    var that = this;
     friendship.save({}, {
-      success: function() {
-
+      success: function(newFriend) {
+        that.userModel.friends().add(newFriend);
+        $(event.currentTarget).parent().find('#friend-search-btn').removeClass('hidden');
+        $(event.currentTarget).find('input.typeahead').val('');
       },
       error: function() {
 
       }
     });
 
-    $(event.currentTarget).parent().find('#friend-search-btn').removeClass('hidden');
-    $(event.currentTarget).find("#friend-search-form").addClass('hidden');
+
   },
 
   getUsers: function(q, cb){
@@ -77,18 +90,6 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
       displayKey: 'value',
       source: this.getUsers
     });
-  },
-
-  getFriends: function() {
-    var current_user = HabitrackApp.Collections.users.getOrFetch(window.currentUserId);
-    return current_user.friends();
-  },
-
-  addFriendListPiece: function(friend) {
-    var friendListPiece = new HabitrackApp.Views.FriendListPiece({
-      model: friend
-    });
-    this.addSubview('#list-o-friends', friendListPiece);
   },
 
   render: function() {

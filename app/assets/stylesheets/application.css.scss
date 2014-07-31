@@ -261,3 +261,45 @@ h1 {
 .report-graphs {
   padding-top: 1px;
 }
+
+.friends-list-box {
+  h1 {
+    display: inline-block;
+  }
+  #friend-search-btn {
+    display: inline-block;
+    float: right;
+    margin-top: 6px;
+    padding-right: 15px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #aaaaaa;
+    &:hover {
+      color: #5a5a5a;
+      cursor: default;
+    }
+  }
+  .friends-list {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    .friend-search {
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.friend-list-piece {
+  margin-bottom: 2px;
+  img {
+    border-radius: 3px;
+  }
+  .friend-name {
+    font-size: 17px;
+    color: #8a8a8a;
+  }
+  &:hover {
+    .friend-name {
+      font-weight: bold;
+    }
+  }
+}

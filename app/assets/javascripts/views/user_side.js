@@ -13,7 +13,7 @@ HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
     this.addSubview('.report-graphs', reportGraphsView);
 
     var friendsListView = new HabitrackApp.Views.UserFriendList();
-    this.addSubview('.friends-list', friendsListView);
+    this.addSubview('.friends-list-box', friendsListView);
 
   },
 

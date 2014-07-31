@@ -6,7 +6,7 @@ class Api::FriendshipsController < ApplicationController
     else
       friendship1 = current_user.created_friendships.create(recp_friend_id: recp_friend.id)
       friendship2 = recp_friend.created_friendships.create(recp_friend_id: current_user.id)
-      render json: friendship1
+      redirect_to api_user_url(recp_friend.id)
     end
   end
 

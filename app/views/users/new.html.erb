@@ -31,12 +31,12 @@
                id="password_input"
                placeholder="Password">
       </div>
-      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <button type="submit" class="pull-right btn btn-primary">Sign Up</button>
 
-      <span class="alternate-login-link">
-        <%= link_to "Already signed up? Login here", new_session_url %>
-      </span>
     </form>
+      <span class="demo-account-button">
+        <%= button_to "Take the Grand Tour", session_demo_url, class: 'btn btn-success btn-lg', method: :get %>
+      </span>
 
   </div>
 </div>

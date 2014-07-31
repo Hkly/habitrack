@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :create, :destroy]
 
+  get 'session/demo', to: 'sessions#demo_account'
+
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:index, :show]
     resources :friendships, only: [:create, :destroy]

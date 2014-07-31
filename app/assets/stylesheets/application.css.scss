@@ -282,6 +282,8 @@ h1 {
   .friends-list {
     padding-top: 15px;
     padding-bottom: 15px;
+    max-height: 350px;
+    overflow-y: auto;
     #friend-search {
       padding-bottom: 5px;
     }

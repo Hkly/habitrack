@@ -3,7 +3,7 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.friends = this.getFriends();
-    this.listenTo(this.friends, 'add', this.addFriendListPiece);
+    this.listenTo(this.getFriends(), 'add', this.addFriendListPiece);
 
     var that = this;
     this.friends.each(function(friend) {

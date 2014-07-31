@@ -1,6 +1,24 @@
 HabitrackApp.Views.UserFriendList = Backbone.View.extend({
   template: JST['sidebar/friends_list'],
 
+  events: {
+    "click button#friend-search-btn": "showSearchForm",
+    "submit": "createFriendships"
+  },
+
+  showSearchForm: function(event) {
+    $(event.currentTarget).parent().find('#friend-search-form').removeClass('hidden');
+    $(event.currentTarget).addClass('hidden');
+  },
+
+  createFriendships: function(event) {
+    event.preventDefault();
+
+
+    $(event.currentTarget).parent().find('#friend-search-btn').removeClass('hidden');
+    $(event.currentTarget).find("#friend-search-form").addClass('hidden');
+  },
+
   getUsers: function(q, cb){
     var names = [];
     HabitrackApp.Collections.users.each(function(user) {
@@ -29,12 +47,13 @@ HabitrackApp.Views.UserFriendList = Backbone.View.extend({
   },
 
   setTypeahead: function() {
-    this.$('#friend-search').typeahead({
+    this.$('#friend-search .typeahead').typeahead({
       hint: true,
       highlight: true,
       minLength: 1
     },{
-      name: 'states',
+      name: 'username',
+      displayKey: 'value',
       source: this.getUsers
     });
   },

@@ -29,7 +29,7 @@ tour.addStep('step1', {
 tour.addStep('step2', {
   title: 'Add a Habit',
   text: 'Add new habits here!',
-  attachTo: '#tour-2 right',
+  attachTo: '#tour-2 bottom',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
     {

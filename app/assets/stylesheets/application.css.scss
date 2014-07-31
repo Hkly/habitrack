@@ -86,18 +86,25 @@ h1 {
 .habit-h1 {
   display: inline-block;
 }
-#tour-btn {
+#tour-btn, .add-new-habit {
   display: inline-block;
-  margin-top: 20px;
+  color: #aaaaaa;
+  margin-top: 15px;
+  font-size: 1.75em;
   font-weight: bold;
   width: 25px;
   height: 25px;
-  padding: 1px 0;
-  text-align: center;
+  margin-right: 12px;
+  float: right;
+  &:hover {
+    cursor: pointer;
+    color: #5a5a5a;
+  }
 }
 
-#tour-btn:focus{
-  outline: none;
+.add-new-habit {
+  font-size: 2.5em;
+  margin: 5px;
 }
 
 // *** habit views ***
@@ -118,7 +125,8 @@ h1 {
   .title {
     font-size: 1.5em;
     display: inline-block;
-    padding-left: 10px;
+    padding-left: 2px;
+    cursor: default;
   }
   .habit-btns {
     float: right;
@@ -144,25 +152,28 @@ h1 {
   padding-top: 5px;
   display: inline-block;
   .completed {
-    background-color: #94d29c;
+    background-color: #249255;
+    color: #ffffff;
     &:hover {
-      background-color: #76d07c;
+      background-color: #196a3a;
     }
   }
 }
 .btn-circle {
-  border: thin solid #4e4e4e;
-  background-color: #fafcff;
+  // border: thin solid #4e4e4e;
+  background-color: #e7e7e7;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   text-align: center;
+  font-weight: bold;
+  color: #a8a8a8;
   padding: 6px 0;
   margin: 1px;
   display:inline-block;
   &:hover{
     background-color: #d5d5d5;
-    cursor: default;
+    cursor: pointer;
   }
 }
 
@@ -275,7 +286,7 @@ h1 {
     }
   }
   .friends-list {
-    padding-top: 15px;
+    padding-top: 10px;
     padding-bottom: 15px;
     max-height: 350px;
     overflow-y: auto;

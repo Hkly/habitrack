@@ -5,7 +5,7 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
     this.currentScore = 0;
     this.listenTo(this.collection, 'sync remove change_habit_days', this.render);
     this.listenToOnce(this.collection, 'sync', this.animateScore);
-    this.listenTo(this.collection, 'add remove change_habit_days', this.updateScore);
+    this.listenTo(this.collection, 'sync remove change_habit_days', this.updateScore);
 
   },
 

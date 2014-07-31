@@ -28,8 +28,8 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   events: {
     "mouseenter": "showButtons",
     "mouseleave": "hideButtons",
-    "click button.delete-habit-btn": "deleteHabit",
-    "click button.edit-habit-btn": "toggleEditForm"
+    "click .delete-habit-btn": "deleteHabit",
+    "click .edit-habit-btn": "toggleEditForm"
   },
 
   showButtons: function(event) {
@@ -52,6 +52,8 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
 
   toggleEditForm: function(event) {
     this.$el.find('.edit-habit-form').toggleClass('hidden').find('#habit_title').focus();
+    this.$el.find('.stats').toggleClass('hidden');
+    this.$el.find('.days').toggleClass('hidden');
   },
 
   render: function() {

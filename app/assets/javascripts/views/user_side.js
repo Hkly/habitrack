@@ -8,13 +8,23 @@ HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
     this.addSubview('.main-score', mainScoreView);
 
     var reportGraphsView = new HabitrackApp.Views.UserReportGraphs({
-      collection: this.collection
+      collection: this.collection,
+      randomData: this.randomData()
     });
     this.addSubview('.report-graphs', reportGraphsView);
 
     var friendsListView = new HabitrackApp.Views.UserFriendList();
     this.addSubview('.friends-list-box', friendsListView);
 
+  },
+
+  randomData: function() {
+    var data = [];
+    for (var i = 0; i < 12; i++) {
+      data.push(Math.floor(Math.random() * 58) + 40);
+    }
+    data.push(0);
+    return data;
   },
 
   render: function(){

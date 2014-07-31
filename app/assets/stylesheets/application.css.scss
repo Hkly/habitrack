@@ -64,7 +64,10 @@ h1 {
 // *** signin/login pages ***
 
 .sign-in-row {
-  margin-top: 70px;
+  margin-top: 50px;
+  h1 {
+    color: #000000;
+  }
 }
 
 .demo-account-button {
@@ -130,7 +133,23 @@ h1 {
   }
   .habit-btns {
     float: right;
-    padding-right: 15px;
+    padding-right: 0px;
+    font-size: 17px;
+    .edit-habit-btn {
+      display: inline-block;
+      &:hover {
+        cursor: pointer;
+        color: #000000;
+      }
+    }
+    .delete-habit-btn {
+      display: inline-block;
+      color: #791F1F;
+      &:hover {
+        cursor: pointer;
+        color: #c81010;
+      }
+    }
   }
   .days {
     display: inline-block;

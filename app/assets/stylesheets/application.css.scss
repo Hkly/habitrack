@@ -312,6 +312,42 @@ h1 {
   padding-top: 1px;
 }
 
+.stack-chart-box {
+  padding-top: 3px;
+  color: #C3D7E9;
+  // div:first-of-type {
+  //   border-top-left-radius: 2px;
+  //   border-bottom-left-radius: 2px;
+  // }
+  div {
+    text-align: center;
+    line-height: 2;
+    display: inline-block;
+    margin-right: -3px;
+    .visible {
+      display: inline-block !important;
+    }
+  }
+  .bottom-bar {
+    h3 {
+      margin: 0px;
+      letter-spacing: 1px;
+    }
+    .percent-bar {
+      height: 3px;
+      width: 250px;
+      background-color: black;
+      margin-right: 3px;
+      margin-bottom: 2px;
+    }
+  }
+}
+
+.end-round {
+  border-top-right-radius: 5px !important;
+  border-bottom-right-radius: 5px !important;
+}
+
 .friends-list-box {
   h1 {
     display: inline-block;

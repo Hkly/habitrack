@@ -19,11 +19,19 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
   },
 
   animateScore: function() {
+    var that = this;
+    var newScore = function() {
+      return Math.floor(that.collection.totalPoints()) > 100 ? 100 : Math.floor(that.collection.totalPoints());
+    };
+
+    var prevScore = function () {
+      return that.currentScore > 100 ? 100 : that.currentScore;
+    };
     var options = {
       useEasing : true,
       useGrouping : false
     };
-    var score = new countUp("current-score", this.currentScore, Math.floor(this.collection.totalPoints()), 0, 1.5, options);
+    var score = new countUp("current-score", prevScore(), newScore(), 0, 1.5, options);
     this.currentScore = Math.floor(this.collection.totalPoints());
     score.start();
   },

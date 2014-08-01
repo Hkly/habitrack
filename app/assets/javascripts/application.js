@@ -18,6 +18,7 @@
 //= require Chart
 //= require shepherd.js
 //= require countUp.min.js
+//= require d3.v3.js
 //= require bootstrap
 //= require underscore
 //= require backbone

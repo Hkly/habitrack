@@ -5,7 +5,7 @@ HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
     this.randomData = this.makeRandomData();
     var mainScoreView = new HabitrackApp.Views.UserMainScore({
       collection: this.collection,
-      randomData: this.randomData.slice(-5)
+      randomData: this.randomData.slice(-4)
     });
     this.addSubview('.main-score', mainScoreView);
 

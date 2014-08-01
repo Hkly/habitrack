@@ -31,9 +31,42 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
     this.mainChart = myBarChart;
   },
 
-  updateNow: function() {
+// move this into a model or collection or something
+  getStackData: function() {
+    var days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+    var data = [0, 0, 0, 0, 0, 0, 0];
 
-    this.mainChart.datasets[0].bars[12].value = Math.floor(this.collection.totalPoints());
+    this.collection.each(function(habit) {
+      habit.habitDays().each(function(habitDay) {
+        var dataPos = days.indexOf(habitDay.get('day'));
+        data[dataPos] += habit.pointsPerDay();
+      });
+    });
+    return data;
+  },
+
+  createStackChart: function () {
+    var test = d3.select(".stack-chart-box").selectAll("div")
+      .data(this.getStackData())
+      .transition()
+      .duration(1000)
+      .attr("class", function(d){return d === 0 ? "hidden" : ""})
+      .style("height", "25px")
+      .style("width", function(d){return (d * 3.7) + 'px'})
+      .style("background-color", "rgb(65, 132, 191)");
+
+
+
+    // setTimeout(function() {
+    //   $(".stack-chart-box > div").not(".hidden").last().addClass("end-round");
+    // }, 1100);
+    // $(".stack-chart-box > div").not(".hidden").last().css("border-top-right-radius", "2px");
+    // $(".stack-chart-box > div").not(".hidden").last().css("border-bottom-right-radius", "2px");
+  },
+
+  updateNow: function() {
+    this.createStackChart();
+    this.mainChart.datasets[0].bars[12].value = (Math.floor(this.collection.totalPoints()) > 100 ? 100 : Math.floor(this.collection.totalPoints()));
     this.mainChart.update();
   },
 

@@ -19,10 +19,15 @@
 
 @import "bootstrap";
 
+html {
+  background: url('/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
 body {
   color: #4e4e4e;
-  background-color: #ededed;
   padding-bottom: 25px;
+  background: transparent;
 }
 
 h1 {
@@ -83,6 +88,25 @@ h1 {
 
 #sign_up_form {
   padding-top: 30px;
+  #actual-form input {
+    background-color: rgba(255, 255, 255, 0.62);
+    border: none;
+    &::-webkit-input-placeholder {
+       color: rgba(157, 157, 157, 0.73);
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+       color: rgba(157, 157, 157, 0.73);
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+       color: rgba(157, 157, 157, 0.73);
+    }
+
+    &:-ms-input-placeholder {
+       color: rgba(157, 157, 157, 0.73);
+    }
+  }
 }
 
 // *** tour ***

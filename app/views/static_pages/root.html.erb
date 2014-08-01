@@ -6,7 +6,7 @@
   $(document).ready(function(){
     window.currentUserAvatarUrl = "<%= current_user.gravatar %>";
     window.currentUserId = <%= current_user.id %>;
-
+    $('html').css({"background": "none", "background-color": "#eaeaed"})
     HabitrackApp.initialize();
   });
 </script>

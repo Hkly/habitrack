@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       signin_user!(@user)
       welcome_habit = @user.habits.create({title: "Welcome to HabiTrack!", weight: 2, num_days_per_week: 1})
-
+      
       redirect_to root_url
     else
       flash.now[:danger] = @user.errors.full_messages

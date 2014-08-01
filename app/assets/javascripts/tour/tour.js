@@ -28,6 +28,26 @@ tour.addStep('step1', {
 
 tour.addStep('step2', {
   title: 'Add a Habit',
+  text: 'blah blah',
+  attachTo: '.habit-piece bottom',
+  classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
+  buttons: [
+    {
+      text: 'Exit',
+      classes: 'shepherd-button-secondary',
+      action: function() {
+        return tour.hide();
+      }
+    }, {
+      text: 'Next',
+      action: tour.next,
+      classes: 'shepherd-button-example-primary'
+    }
+  ]
+});
+
+tour.addStep('step3', {
+  title: 'Add a Habit',
   text: 'Add new habits here!',
   attachTo: '#tour-2 bottom',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',

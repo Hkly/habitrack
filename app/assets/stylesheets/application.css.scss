@@ -306,7 +306,7 @@ h1 {
   }
   .friends-list {
     padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     max-height: 350px;
     overflow-y: auto;
     #friend-search {
@@ -320,16 +320,16 @@ h1 {
   .friend-score-box {
     display: inline-block;
     .friend-score {
-      border-left: thin solid #8a8a8a;
-      border-top: thin solid #8a8a8a;
-      border-bottom: 3px solid #8a8a8a;
+      border-left: thin solid #9f9e9e;
+      border-top: thin solid #9f9e9e;
+      border-bottom: 3px solid #9f9e9e;
       border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
       display: inline-block;
       width: 50px;
       height: 50px;
       text-align: center;
-      color: #8a8a8a;
+      color: #9f9e9e;
       font-size: 30px;
       margin-right: -4px;
     }
@@ -345,7 +345,7 @@ h1 {
   .friend-name {
     display: inline-block;
     font-size: 17px;
-    color: #8a8a8a;
+    color: #9f9e9e;
   }
   &:hover {
     .friend-name {

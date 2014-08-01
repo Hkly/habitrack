@@ -4,6 +4,7 @@
   box-sizing: border-box; }
 
 .shepherd-element {
+  z-index: 100;
   position: absolute;
   display: none; }
   .shepherd-element.shepherd-open {
@@ -23,16 +24,16 @@
     background: white;
     color: #444444;
     padding: 1em;
-    font-size: 1.1em;
+    font-size: 17px;
     line-height: 1.5em;
     -webkit-transform: translateZ(0);
     -moz-transform: translateZ(0);
     -ms-transform: translateZ(0);
     -o-transform: translateZ(0);
     transform: translateZ(0);
-    -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
-    -moz-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2));
-    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.2)); }
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+    -moz-filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4)); }
     .shepherd-element.shepherd-theme-arrows .shepherd-content:before {
       content: "";
       display: block;
@@ -201,7 +202,7 @@
           font-size: 0.8em;
           line-height: 1em;
           padding: 0.75em 2em;
-          background: #3288e6;
+          background: #428bca;
           color: white; }
           .shepherd-element.shepherd-theme-arrows .shepherd-content footer .shepherd-buttons li .shepherd-button.shepherd-button-secondary {
             background: #eeeeee;

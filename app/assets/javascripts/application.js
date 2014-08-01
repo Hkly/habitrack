@@ -16,7 +16,7 @@
 //= require jquery.serializejson.min.js
 //= require typeahead.jquery.js
 //= require Chart
-//= require shepherd.min.js
+//= require shepherd.js
 //= require countUp.min.js
 //= require bootstrap
 //= require underscore

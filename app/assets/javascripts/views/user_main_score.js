@@ -11,7 +11,7 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
   },
 
   calculateAverage: function() {
-    var num = 0;
+    var num = this.collection.totalPoints();
     this.lastFourRandomData.forEach(function(n) {
       num += n;
     });

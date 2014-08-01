@@ -8,7 +8,7 @@ var tour = HabitrackApp.tour = new Shepherd.Tour({
 
 tour.addStep('step1', {
   title: 'Welcome to HabiTrack!',
-  text: 'This would help you get started with this application!',
+  text: 'HabiTrack is an app to help you keep your habits on track!',
   attachTo: '.navbar bottom',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
@@ -21,107 +21,97 @@ tour.addStep('step1', {
     }, {
       text: 'Next',
       action: tour.next,
-      classes: 'shepherd-button-example-primary'
+      classes: 'shepherd-button-primary'
     }
   ]
 });
 
 tour.addStep('step2', {
-  title: 'Add a Habit',
-  text: 'blah blah',
+  title: 'Check in Your Habits',
+  text: 'Select the days you\'ve completed your habit on this week. <br>The bottom right number is the total possible points you<br> can earn this week from doing this habit.<br><br> You can mouse over this habit panel and click on the <br>pencil to edit your habit options including how many days<br> per week you want to do this and its importance. ',
   attachTo: '.habit-piece bottom',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
     {
-      text: 'Exit',
+      text: 'Back',
       classes: 'shepherd-button-secondary',
-      action: function() {
-        return tour.hide();
-      }
+      action: tour.back
     }, {
       text: 'Next',
       action: tour.next,
-      classes: 'shepherd-button-example-primary'
+      classes: 'shepherd-button-primary'
     }
   ]
 });
 
 tour.addStep('step3', {
   title: 'Add a Habit',
-  text: 'Add new habits here!',
+  text: 'Click this plus sign to add a new habit.',
   attachTo: '#tour-2 bottom',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
     {
-      text: 'Exit',
+      text: 'Back',
       classes: 'shepherd-button-secondary',
-      action: function() {
-        return tour.hide();
-      }
+      action: tour.back
     }, {
       text: 'Next',
       action: tour.next,
-      classes: 'shepherd-button-example-primary'
+      classes: 'shepherd-button-primary'
     }
   ]
 });
 
 tour.addStep('step3', {
-  title: 'Your current score',
-  text: 'See how you are doing',
+  title: 'Your Current Score',
+  text: 'See how you are doing this week. <br><br>You score 100 points for every week you complete all your habits.',
   attachTo: '#tour-3 left',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
     {
-      text: 'Exit',
+      text: 'Back',
       classes: 'shepherd-button-secondary',
-      action: function() {
-        return tour.hide();
-      }
+      action: tour.back
     }, {
       text: 'Next',
       action: tour.next,
-      classes: 'shepherd-button-example-primary'
+      classes: 'shepherd-button-primary'
     }
   ]
 });
 
 tour.addStep('step4', {
-  title: 'Graphs!',
-  text: 'Graphs are shiny. So much data.',
+  title: 'Visualize Your Progress',
+  text: 'Keep an eye on your progress over the last 3 months.',
   attachTo: '#tour-4 left',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
     {
-      text: 'Exit',
+      text: 'Back',
       classes: 'shepherd-button-secondary',
-      action: function() {
-        return tour.hide();
-      }
+      action: tour.back
     }, {
       text: 'Next',
       action: tour.next,
-      classes: 'shepherd-button-example-primary'
+      classes: 'shepherd-button-primary'
     }
   ]
 });
 
 tour.addStep('step5', {
-  title: 'Have friends',
-  text: 'Keep up with your friends. Encourage their progress!',
+  title: 'The More the Merrier',
+  text: 'Keep up with your friends. Encourage their progress!<br>You can add friends by clicking on the plus sign.',
   attachTo: '#tour-5 left',
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
     {
-      text: 'Exit',
+      text: 'Back',
       classes: 'shepherd-button-secondary',
-      action: function() {
-        return tour.hide();
-      }
+      action: tour.back
     }, {
       text: 'Next',
       action: tour.next,
-      classes: 'shepherd-button-example-primary'
+      classes: 'shepherd-button-primary'
     }
   ]
 });
@@ -132,8 +122,12 @@ tour.addStep('stepLast', {
   classes: 'shepherd shepherd-open shepherd-theme-arrows shepherd-transparent-text',
   buttons: [
     {
-      text: 'Exit',
+      text: 'Back',
       classes: 'shepherd-button-secondary',
+      action: tour.back
+    },{
+      text: 'Done',
+      classes: 'shepherd-button-primary',
       action: function() {
         return tour.hide();
       }

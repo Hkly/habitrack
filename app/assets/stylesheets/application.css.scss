@@ -366,10 +366,11 @@ h1 {
     }
   }
   .friends-list {
+    z-index: -1;
     padding-top: 10px;
     padding-bottom: 10px;
-    max-height: 350px;
-    overflow-y: auto;
+    // max-height: 350px;
+    // overflow-y: auto;
     #friend-search {
       padding-bottom: 5px;
     }

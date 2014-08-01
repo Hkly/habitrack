@@ -4,17 +4,18 @@
 }
 
 .tt-dropdown-menu {
+  z-index: 1000;
   min-width: 160px;
-  margin-top: 2px;
-  padding: 5px 0;
+  margin-top: 0px;
+  padding: 2px 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0,0,0,.2);
   *border-right-width: 2px;
   *border-bottom-width: 2px;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
   -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
      -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
           box-shadow: 0 5px 10px rgba(0,0,0,.2);
@@ -23,13 +24,19 @@
           background-clip: padding-box;
 }
 
+
 .tt-suggestion {
   display: block;
   padding: 3px 20px;
 }
 
+.tt-suggestion:hover {
+    background-color: #bebdbd;
+    cursor: default;
+}
+
 .tt-suggestion.tt-is-under-cursor {
-  color: #fff;
+  color: #b9b9b9;
   background-color: #0081c2;
   background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
@@ -41,7 +48,7 @@
 }
 
 .tt-suggestion.tt-is-under-cursor a {
-  color: #fff;
+  color: #b9b9b9;
 }
 
 .tt-suggestion p {

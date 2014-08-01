@@ -31,13 +31,13 @@
                id="password_input"
                placeholder="Password">
       </div>
-      <button type="submit" class="pull-right btn btn-primary">Sign Up</button>
+      <button type="submit" class="pull-left btn btn-primary">Sign Up</button>
 
     </form>
 
-  <span class="demo-account-button">
-    <%= button_to "Sign in as Guest", session_demo_url, class: 'btn btn-success btn-lg', method: :get %>
-  </span>
+  <div class="pull-right demo-account-button">
+    <%= button_to "Log in as Guest", session_demo_url, class: 'btn btn-success btn-lg', method: :get %>
+  </div>
 
   </div>
 </div>

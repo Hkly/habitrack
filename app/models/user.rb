@@ -20,13 +20,13 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
-  has_many :habits
-  has_many :habit_days, through: :habits, source: :habit_days
+  has_many :habits, dependent: :destroy
+  has_many :habit_days, through: :habits, source: :habit_days, dependent: :destroy
 
-  has_many :created_friendships, foreign_key: :init_friend_id, class_name: "Friendship"
-  has_many :recieved_friendships, foreign_key: :recp_friend_id, class_name: "Friendship"
+  has_many :created_friendships, foreign_key: :init_friend_id, class_name: "Friendship", dependent: :destroy
+  has_many :recieved_friendships, foreign_key: :recp_friend_id, class_name: "Friendship", dependent: :destroy
 
-  has_many :friends, through: :created_friendships, source: :recp_user
+  has_many :friends, through: :created_friendships, source: :recp_user, dependent: :destroy
 
 
   def gravatar

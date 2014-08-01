@@ -6,10 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+seeders = ["Thor", "Loki", "AwEsOmeStArK", "BBanner18", "BlkWdw666", "TheFury", "CoulsonP9", "clint_barton", "USAsteve"]
 
-# demo_user = User.create(username: "DemoBob", email: "bob@demoman.com", password: "bobthedemoman")
-#
-# habit1 = demo_user.Habit.create(title: "Do pushups", )
+seeders.each do |user|
+  seed = User.find_by_username(user)
+  seed.delete
+end
+
 
 thor = User.create(username: "Thor", email: "thor@asguard.net", password: "hammertime")
 loki = User.create(username: "Loki", email: "loki@asguard.net", password: "whyamihere")

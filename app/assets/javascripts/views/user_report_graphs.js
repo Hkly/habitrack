@@ -52,7 +52,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
       .duration(1000)
       .attr("class", function(d){return d === 0 ? "hidden" : ""})
       .style("height", "25px")
-      .style("width", function(d){return (d * 3.7) + 'px'})
+      .style("width", function(d){return (d * 3.2) + 'px'})
       .style("background-color", "rgb(65, 132, 191)");
 
 

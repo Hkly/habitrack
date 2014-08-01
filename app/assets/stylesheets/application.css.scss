@@ -158,6 +158,7 @@ h1 {
     display: inline-block;
     width: 248px;
     text-align: right;
+    color: #8b8b8b;
   }
   &:hover {
     background-color: #f3f5f8;
@@ -179,7 +180,6 @@ h1 {
   }
 }
 .btn-circle {
-  // border: thin solid #4e4e4e;
   background-color: #e7e7e7;
   border-radius: 50%;
   width: 30px;
@@ -317,16 +317,40 @@ h1 {
 
 .friend-list-piece {
   margin-bottom: 2px;
-  img {
-    border-radius: 3px;
+  .friend-score-box {
+    display: inline-block;
+    .friend-score {
+      border-left: thin solid #8a8a8a;
+      border-top: thin solid #8a8a8a;
+      border-bottom: 3px solid #8a8a8a;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      color: #8a8a8a;
+      font-size: 30px;
+      margin-right: -4px;
+    }
+    .friend-icon {
+      display: inline-block;
+      img {
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      margin-bottom: 8px;
+      }
+    }
   }
   .friend-name {
+    display: inline-block;
     font-size: 17px;
     color: #8a8a8a;
   }
   &:hover {
     .friend-name {
       font-weight: bold;
+      cursor: default;
     }
   }
 }

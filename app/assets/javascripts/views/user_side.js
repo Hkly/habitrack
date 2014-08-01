@@ -2,14 +2,16 @@ HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
   template: JST["sidebar/user_side"],
 
   initialize: function() {
+    this.randomData = this.makeRandomData();
     var mainScoreView = new HabitrackApp.Views.UserMainScore({
-      collection: this.collection
+      collection: this.collection,
+      randomData: this.randomData.slice(-5)
     });
     this.addSubview('.main-score', mainScoreView);
 
     var reportGraphsView = new HabitrackApp.Views.UserReportGraphs({
       collection: this.collection,
-      randomData: this.randomData()
+      randomData: this.randomData
     });
     this.addSubview('.report-graphs', reportGraphsView);
 
@@ -18,7 +20,7 @@ HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
 
   },
 
-  randomData: function() {
+  makeRandomData: function() {
     var data = [];
     for (var i = 0; i < 12; i++) {
       data.push(Math.floor(Math.random() * 58) + 40);

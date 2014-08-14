@@ -33,7 +33,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
 
 // move this into a model or collection or something
   getStackData: function() {
-    var days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+    var days = ["mon", "tue", "wed", "thr", "fri", "sat", "sun"];
     var data = [0, 0, 0, 0, 0, 0, 0];
 
     this.collection.each(function(habit) {

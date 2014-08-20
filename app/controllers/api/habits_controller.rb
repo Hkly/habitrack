@@ -11,7 +11,6 @@ class Api::HabitsController < ApplicationController
 
   def index
     @habits = current_user.habits
-    render json: @habits, include: :habit_days
   end
 
   def show

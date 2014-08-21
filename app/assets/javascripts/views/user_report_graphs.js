@@ -37,7 +37,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
     var data = [0, 0, 0, 0, 0, 0, 0];
 
     this.collection.each(function(habit) {
-      habit.habitDays().each(function(habitDay) {
+      habit.currentHabitDays().each(function(habitDay) {
         var dataPos = days.indexOf(habitDay.get('day'));
         data[dataPos] += habit.pointsPerDay();
       });

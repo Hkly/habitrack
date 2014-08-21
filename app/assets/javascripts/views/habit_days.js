@@ -4,8 +4,7 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
 
   addDots: function() {
     var that = this;
-
-    this.model.habitDays().each(function(habitDay) {
+    this.collection.each(function(habitDay) {
       var doneDay = habitDay.get('day');
       that.$el.find(".btn-circle[data-day='" + doneDay + "']").addClass("completed");
     });
@@ -38,7 +37,7 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
 
   deleteHabitDay: function(event) {
     var clickedDay = $(event.currentTarget).data('day');
-    var clickedHabitDayModel = this.model.habitDays().find(function(model) {
+    var clickedHabitDayModel = this.collection.find(function(model) {
       return model.get('day') == clickedDay;
     });
     clickedHabitDayModel.destroy({

@@ -12,11 +12,22 @@ HabitrackApp.Models.Habit = Backbone.Model.extend({
     return this._habitDays;
   },
 
+  currentHabitDays: function() {
+    if (!this._currentHabitDays) {
+      this._currentHabitDays = new HabitrackApp.Collections.HabitDays([], {habit: this })
+    };
+    return this._currentHabitDays;
+  },
+
   parse: function(jsonResponse) {
-    if (jsonResponse.habit_days) {
-      this.habitDays().set(jsonResponse.habit_days, {parse: true});
-      // delete habbitDays property from jsonResponse.
-    }
+    if (jsonResponse.all_habit_days) {
+      this.habitDays().set(jsonResponse.all_habit_days, {parse: true});
+      delete jsonResponse.all_habit_days;
+    };
+    if (jsonResponse.current_habit_days) {
+      this.currentHabitDays().set(jsonResponse.current_habit_days, {parse: true});
+      delete jsonResponse.current_habt_days;
+    };
     return jsonResponse;
   },
 

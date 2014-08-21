@@ -13,14 +13,14 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
     this.addSubview('.edit-habit-form', editFormView);
 
     var habitDaysView = new HabitrackApp.Views.HabitDays({
-      collection: this.model.habitDays(),
+      collection: this.model.currentHabitDays(),
       model: this.model
     });
     this.addSubview('.days', habitDaysView);
     var habitStatsView = new HabitrackApp.Views.HabitStats({
       model: this.model,
       collection: this.collection,
-      habitDays: this.model.habitDays()
+      habitDays: this.model.currentHabitDays()
       });
     this.addSubview('.stats', habitStatsView);
   },

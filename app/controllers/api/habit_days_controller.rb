@@ -4,6 +4,7 @@ class Api::HabitDaysController < ApplicationController
     # these params might need to be fixed
     @habit = Habit.find(params[:habit_id])
     @habit_day = @habit.habit_days.new(habit_params)
+    @habit_day.week_of = Date.today.beginning_of_week
 
     if @habit_day.save
       render json: @habit_day

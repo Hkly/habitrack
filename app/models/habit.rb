@@ -18,4 +18,8 @@ class Habit < ActiveRecord::Base
   belongs_to :user
   has_many :habit_days
 
+  def current_habit_days
+    self.habit_days.where(:week_of => Date.today.beginning_of_week)
+  end
+
 end

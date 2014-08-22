@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821012532) do
+ActiveRecord::Schema.define(version: 20140730172833) do
 
   create_table "friendships", force: true do |t|
     t.integer  "init_friend_id", null: false
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 20140821012532) do
     t.string   "day",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.date     "week_of"
   end
 
   add_index "habit_days", ["habit_id"], name: "index_habit_days_on_habit_id"

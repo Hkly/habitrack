@@ -13,4 +13,8 @@ class HabitDay < ActiveRecord::Base
   belongs_to :habit
   belongs_to :user
 
+  def week_of
+    self.created_at.beginning_of_week
+  end
+
 end

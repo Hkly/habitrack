@@ -19,7 +19,7 @@ class Habit < ActiveRecord::Base
   has_many :habit_days
 
   def current_habit_days
-    self.habit_days.where(:week_of => Date.today.beginning_of_week)
+    self.habit_days.where(created_at: (Date.today.beginning_of_week .. Date.today + 1))
   end
 
 end

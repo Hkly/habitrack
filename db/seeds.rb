@@ -10,7 +10,7 @@ seeders = ["Thor", "Loki", "AwEsOmeStArK", "BBanner18", "BlkWdw666", "TheFury", 
 
 seeders.each do |user|
   seed = User.find_by_username(user)
-  seed.delete
+  seed.delete unless seed.nil?
 end
 
 
@@ -24,7 +24,7 @@ coulson = User.create(username: "CoulsonP9", email: "coulson@shield.net", passwo
 clint = User.create(username: "clint_barton", email: "barton@shield.net", password: "ilikearrows")
 capt = User.create(username: "USAsteve", email: "stever@aol.com", password: "shieldtime")
 
-capt_habit1 = capt.habits.create(title: "Practice using the Google", num_days_per_week: 3, weight: 3)
+capt_habit1 = capt.habits.create(title: "Drink coffee", num_days_per_week: 6, weight: 3)
 capt_habit2 = capt.habits.create(title: "Go for a run - Cardio!", num_days_per_week: 6, weight: 2)
 capt_habit3 = capt.habits.create(title: "Team dinner w/Natasha", num_days_per_week: 1, weight: 2)
 

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
@@ -7,7 +7,7 @@ gem 'backbone-on-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: [:development, :test]
-gem 'debugger', group: [:development, :test]
+gem 'pry-byebug', group: [:development, :test]
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

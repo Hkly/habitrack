@@ -3,7 +3,6 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   className: "habit-piece",
 
   initialize: function(options) {
-
     this.listenTo(this.model, 'sync', this.render);
 
     var editFormView = new HabitrackApp.Views.HabitForm({
@@ -17,6 +16,7 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
       model: this.model
     });
     this.addSubview('.days', habitDaysView);
+
     var habitStatsView = new HabitrackApp.Views.HabitStats({
       model: this.model,
       collection: this.collection,

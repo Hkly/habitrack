@@ -4,10 +4,8 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
   initialize: function(options) {
     this.lastFourRandomData = options.randomData;
     this.currentScore = 0;
-    this.listenTo(this.collection, 'sync remove change_habit_days', this.render);
-    this.listenToOnce(this.collection, 'sync', this.animateScore);
-    this.listenTo(this.collection, 'sync remove change_habit_days', this.updateScore);
 
+    this.listenTo(this.collection, 'sync remove change_habit_days', this.updateScores);
   },
 
   calculateAverage: function() {
@@ -18,27 +16,36 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
     return Math.floor(num / 4);
   },
 
-  animateScore: function() {
-    var that = this;
-    var newScore = function() {
-      return Math.floor(that.collection.totalPoints()) > 100 ? 100 : Math.floor(that.collection.totalPoints());
-    };
-
-    var prevScore = function () {
-      return that.currentScore > 100 ? 100 : that.currentScore;
-    };
+  animateScore: function(selector, newScore, prevScore) {
     var options = {
       useEasing : true,
       useGrouping : false
     };
-    var score = new countUp("current-score", prevScore(), newScore(), 0, 1.5, options);
-    this.currentScore = Math.floor(this.collection.totalPoints());
+    var score = new countUp(selector, prevScore, newScore, 0, 1.5, options);
     score.start();
   },
 
-  updateScore: function() {
-    this.animateScore();
-    // $('#current-score').text(Math.floor(this.collection.totalPoints()));
+  updateCurrentScore: function() {
+    // Displayed score should only go up to 100
+    var prevScore = this.currentScore > 100 ? 100 : this.currentScore;
+
+    this.currentScore = Math.floor(this.collection.totalPoints());
+    var newScore = this.currentScore > 100 ? 100 : this.currentScore;
+
+    this.animateScore('current-score', newScore, prevScore);
+  },
+
+  updateAverageScore: function() {
+    var newAverage = this.calculateAverage();
+    newAverage = newAverage > 100 ? 100 : newAverage;
+    var prevAverage = parseInt($('#average-score').text());
+
+    this.animateScore('average-score', newAverage, prevAverage);
+  },
+
+  updateScores: function() {
+    this.updateCurrentScore();
+    this.updateAverageScore();
   },
 
   render: function() {

@@ -3,14 +3,14 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
 
   initialize: function() {
     this.userModel = HabitrackApp.Collections.users.getOrFetch(window.currentUserId);
+    this.userFriends = this.userModel.friends();
     this.listenTo(this.userModel, 'sync', this.addFriendList);
-    this.listenTo(this.userModel.friends(), 'sync', this.addFriendListPiece);
-
+    this.listenTo(this.userFriends, 'sync', this.addFriendListPiece);
   },
 
   addFriendList: function() {
     var that = this;
-    this.userModel.friends().each( function(friend) {
+    this.userFriends.each( function(friend) {
       that.addFriendListPiece(friend);
     });
   },
@@ -41,16 +41,11 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
     var that = this;
     friendship.save({}, {
       success: function(newFriend) {
-        that.userModel.friends().add(newFriend);
+        that.userFriends.add(newFriend);
         $(event.currentTarget).parent().find('#friend-search-btn').removeClass('hidden');
         $(event.currentTarget).find('input.typeahead').val('');
-      },
-      error: function() {
-
       }
     });
-
-
   },
 
   getUsers: function(q, cb){

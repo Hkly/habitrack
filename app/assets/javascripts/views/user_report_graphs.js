@@ -10,25 +10,37 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
   createGraph: function() {
     var ctx = document.getElementById("main-chart").getContext("2d");
     var data = {
-    labels: ["wk1", "wk2", "wk3", "wk4", "wk5", "wk6", "wk7", "wk8", "wk9", "wk10", "wk11", "wk12", "now"],
-    datasets: [
+      labels: [
+        "wk1",
+        "wk2",
+        "wk3",
+        "wk4",
+        "wk5",
+        "wk6",
+        "wk7",
+        "wk8",
+        "wk9",
+        "wk10",
+        "wk11",
+        "wk12",
+        "now"
+      ],
+      datasets: [
         {
-            label: "My First dataset",
-            fillColor: "rgba(64, 124, 189, 0.82)",
-            highlightFill: "rgb(67, 140, 204)",
-            data: this.randomData
+          label: "My First dataset",
+          fillColor: "rgba(64, 124, 189, 0.82)",
+          highlightFill: "rgb(67, 140, 204)",
+          data: this.randomData
         }
       ]
     };
 
-    var myBarChart = new Chart(ctx).Bar(data, {
+    this.mainChart = new Chart(ctx).Bar(data, {
       scaleShowGridLines: false,
       barShowStroke: false,
       barValueSpacing: 1,
       showScale: false
       });
-
-    this.mainChart = myBarChart;
   },
 
 // move this into a model or collection or something
@@ -50,9 +62,13 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
       .data(this.getStackData())
       .transition()
       .duration(1000)
-      .attr("class", function(d){return d === 0 ? "hidden" : ""})
+      .attr("class", function(data){
+        return data === 0 ? "hidden" : "";
+      })
       .style("height", "25px")
-      .style("width", function(d){return (d * 3.2) + 'px'})
+      .style("width", function(data){
+        return (data * 3.2) + 'px';
+      })
       .style("background-color", "rgb(65, 132, 191)");
 
 
@@ -66,7 +82,10 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
 
   updateNow: function() {
     this.createStackChart();
-    this.mainChart.datasets[0].bars[12].value = (Math.floor(this.collection.totalPoints()) > 100 ? 100 : Math.floor(this.collection.totalPoints()));
+    var totalPoints = Math.floor(this.collection.totalPoints());
+    var latestBar = this.mainChart.datasets[0].bars[12];
+
+    latestBar.value = (totalPoints > 100 ? 100 : totalPoints);
     this.mainChart.update();
   },
 

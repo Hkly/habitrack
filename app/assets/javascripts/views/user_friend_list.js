@@ -17,7 +17,7 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
 
   addFriendListPiece: function(friend) {
     var friendListPiece = new HabitrackApp.Views.FriendListPiece({
-      model: friend
+      friend: friend
     });
     this.addSubview('#list-o-friends', friendListPiece);
   },

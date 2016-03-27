@@ -17,16 +17,12 @@ HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
 
     var friendsListView = new HabitrackApp.Views.UserFriendList();
     this.addSubview('.friends-list-box', friendsListView);
-
   },
 
   render: function(){
     var renderedContent = this.template();
-
     this.$el.html(renderedContent);
-
     this.attachSubviews();
-
     return this;
   }
 });

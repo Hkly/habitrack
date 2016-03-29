@@ -40,6 +40,6 @@ HabitrackApp.Models.Habit = Backbone.Model.extend({
   },
 
   currentPoints: function(){
-    return this.habitDays().length * this.pointsPerDay();
+    return this.currentHabitDays().length * this.pointsPerDay();
   }
 });

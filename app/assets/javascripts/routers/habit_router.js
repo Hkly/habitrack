@@ -7,7 +7,7 @@ HabitrackApp.Routers.Habits = Backbone.Router.extend({
     HabitrackApp.Collections.habits.fetch();
     HabitrackApp.Collections.users.fetch();
     var indexView = new HabitrackApp.Views.HabitsIndex({
-      collection: HabitrackApp.Collections.habits
+      habits: HabitrackApp.Collections.habits
     });
     this._swapView(indexView);
   },

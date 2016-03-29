@@ -1,15 +1,16 @@
 HabitrackApp.Views.UserMainScore = Backbone.View.extend({
   template: JST['sidebar/main_score'],
 
-  initialize: function(options) {
-    this.lastFourRandomData = options.randomData;
+  initialize: function(opts) {
+    this.habits = opts.habits;
+    this.lastFourRandomData = opts.randomData;
     this.currentScore = 0;
 
-    this.listenTo(this.collection, 'sync remove change_habit_days', this.updateScores);
+    this.listenTo(this.habits, 'sync remove change_habit_days', this.updateScores);
   },
 
   calculateAverage: function() {
-    var num = this.collection.totalPoints();
+    var num = this.habits.totalPoints();
     this.lastFourRandomData.forEach(function(n) {
       num += n;
     });
@@ -29,7 +30,7 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
     // Displayed score should only go up to 100
     var prevScore = this.currentScore > 100 ? 100 : this.currentScore;
 
-    this.currentScore = Math.floor(this.collection.totalPoints());
+    this.currentScore = Math.floor(this.habits.totalPoints());
     var newScore = this.currentScore > 100 ? 100 : this.currentScore;
 
     this.animateScore('current-score', newScore, prevScore);
@@ -50,7 +51,7 @@ HabitrackApp.Views.UserMainScore = Backbone.View.extend({
 
   render: function() {
     var renderedContent = this.template({
-      habits: this.collection,
+      habits: this.habits,
       average: this.calculateAverage()
     });
 

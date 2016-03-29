@@ -1,21 +1,22 @@
 HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   template: JST['habits/index'],
 
-  initialize: function() {
-    this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.collection, 'add', this.addHabit);
-    this.listenTo(this.collection, 'remove', this.removeHabit);
+  initialize: function(opts) {
+    this.habits = opts.habits;
+    this.listenTo(this.habits, 'sync', this.render);
+    this.listenTo(this.habits, 'add', this.addHabit);
+    this.listenTo(this.habits, 'remove', this.removeHabit);
 
-    this.collection.each(this.addHabit.bind(this));
+    this.habits.each(this.addHabit.bind(this));
 
     var newFormView = new HabitrackApp.Views.HabitForm({
-      model: new HabitrackApp.Models.Habit(),
-      collection: this.collection
+      habit: new HabitrackApp.Models.Habit(),
+      habits: this.habits
     });
     this.addSubview('.new-habit-form', newFormView);
 
     var userSideView = new HabitrackApp.Views.UserSide({
-      collection: this.collection
+      habits: this.habits
     });
     this.addSubview('.right-side', userSideView);
   },
@@ -37,8 +38,8 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
 
   addHabit: function(habit) {
     var habitPiece = new HabitrackApp.Views.HabitPiece({
-      model: habit,
-      collection: this.collection
+      habit: habit,
+      habits: this.habits
     });
     this.addSubview('.habits', habitPiece);
   },
@@ -46,7 +47,7 @@ HabitrackApp.Views.HabitsIndex = Backbone.CompositeView.extend({
   removeHabit: function(habit) {
     var views = this.subviews('.habits');
     var view = _.find(views, function(view) {
-      return view.model.id == habit.id;
+      return view.habit.id == habit.id;
     });
     this.removeSubview('.habits', view);
   },

@@ -1,10 +1,11 @@
 HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
   template: JST["sidebar/report_graphs"],
 
-  initialize: function(options) {
-    this.randomData = options.randomData;
-    this.listenToOnce(this.collection, 'sync', this.createGraph);
-    this.listenTo(this.collection, 'sync remove change_habit_days', this.updateNow);
+  initialize: function(opts) {
+    this.habits = opts.habits;
+    this.randomData = opts.randomData;
+    this.listenToOnce(this.habits, 'sync', this.createGraph);
+    this.listenTo(this.habits, 'sync change_habit_days', this.updateNow);
   },
 
   createGraph: function() {
@@ -48,7 +49,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
     var days = ["mon", "tue", "wed", "thr", "fri", "sat", "sun"];
     var data = [0, 0, 0, 0, 0, 0, 0];
 
-    this.collection.each(function(habit) {
+    this.habits.each(function(habit) {
       habit.currentHabitDays().each(function(habitDay) {
         var dataPos = days.indexOf(habitDay.get('day'));
         data[dataPos] += habit.pointsPerDay();
@@ -82,7 +83,7 @@ HabitrackApp.Views.UserReportGraphs = Backbone.View.extend({
 
   updateNow: function() {
     this.createStackChart();
-    var totalPoints = Math.floor(this.collection.totalPoints());
+    var totalPoints = Math.floor(this.habits.totalPoints());
     var latestBar = this.mainChart.datasets[0].bars[12];
 
     latestBar.value = (totalPoints > 100 ? 100 : totalPoints);

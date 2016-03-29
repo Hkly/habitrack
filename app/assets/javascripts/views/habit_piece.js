@@ -2,25 +2,28 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
   template: JST['habits/piece'],
   className: "habit-piece",
 
-  initialize: function(options) {
-    this.listenTo(this.model, 'sync', this.render);
+  initialize: function(opts) {
+    this.habit = opts.habit;
+    this.habits = opts.habits;
+
+    this.listenTo(this.habit, 'sync', this.render);
 
     var editFormView = new HabitrackApp.Views.HabitForm({
-      model: this.model,
-      collection: this.collection
+      habit: this.habit,
+      habits: this.habits
     });
     this.addSubview('.edit-habit-form', editFormView);
 
     var habitDaysView = new HabitrackApp.Views.HabitDays({
-      collection: this.model.currentHabitDays(),
-      model: this.model
+      currentHabitDays: this.habit.currentHabitDays(),
+      habit: this.habit
     });
     this.addSubview('.days', habitDaysView);
 
     var habitStatsView = new HabitrackApp.Views.HabitStats({
-      model: this.model,
-      collection: this.collection,
-      habitDays: this.model.currentHabitDays()
+      habit: this.habit,
+      habits: this.habits,
+      habitDays: this.habit.currentHabitDays()
       });
     this.addSubview('.stats', habitStatsView);
   },
@@ -43,7 +46,7 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
 
   deleteHabit: function(event) {
     var that = this;
-    this.model.destroy({
+    this.habit.destroy({
       success: function() {
         // wait what? why don't I need this?
         // that.collection.remove(that.model);
@@ -63,7 +66,7 @@ HabitrackApp.Views.HabitPiece = Backbone.CompositeView.extend({
 
   render: function() {
     var renderedContent = this.template({
-      habit: this.model
+      habit: this.habit
     });
     this.$el.html(renderedContent);
     this.attachSubviews();

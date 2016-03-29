@@ -3,6 +3,11 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
   tagName: "form",
   className: "habit-form",
 
+  initialize: function(opts) {
+    this.habit = opts.habit;
+    this.habits = opts.habits;
+  },
+
   events: {
     "submit": "createOrSaveHabit",
     "click .cancel-link": "hideForm"
@@ -16,7 +21,7 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
     event.preventDefault();
 
     var params = this.$el.serializeJSON();
-    var habit = this.model;
+    var habit = this.habit;
     if (habit.id) {
       habit.set(params);
       habit.save({}, {
@@ -31,8 +36,8 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
       var that = this;
       habit.save({}, {
         success: function(new_habit) {
-          that.collection.add(new_habit);
-          that.model = new HabitrackApp.Models.Habit();
+          that.habits.add(new_habit);
+          that.habit = new HabitrackApp.Models.Habit();
           that.render();
         },
         error: function(errors) {
@@ -44,7 +49,7 @@ HabitrackApp.Views.HabitForm = Backbone.View.extend({
 
   render: function() {
     var renderedContent = this.template({
-      habit: this.model
+      habit: this.habit
     });
 
     this.$el.html(renderedContent);

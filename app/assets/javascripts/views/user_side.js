@@ -1,16 +1,17 @@
 HabitrackApp.Views.UserSide = Backbone.CompositeView.extend({
   template: JST["sidebar/user_side"],
 
-  initialize: function() {
+  initialize: function(opts) {
+    this.habits = opts.habits;
     this.randomData = HabitrackApp.helpers.makeRandomData();
     var mainScoreView = new HabitrackApp.Views.UserMainScore({
-      collection: this.collection,
+      habits: this.habits,
       randomData: this.randomData.slice(-4)
     });
     this.addSubview('.main-score', mainScoreView);
 
     var reportGraphsView = new HabitrackApp.Views.UserReportGraphs({
-      collection: this.collection,
+      habits: this.habits,
       randomData: this.randomData
     });
     this.addSubview('.report-graphs', reportGraphsView);

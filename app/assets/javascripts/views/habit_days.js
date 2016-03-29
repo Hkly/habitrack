@@ -2,9 +2,14 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
   template: JST['habits/days'],
   className: "days-list",
 
+  initialize: function(opts) {
+    this.currentHabitDays = opts.currentHabitDays;
+    this.habit = opts.habit;
+  },
+
   addDots: function() {
     var that = this;
-    this.collection.each(function(habitDay) {
+    this.currentHabitDays.each(function(habitDay) {
       var doneDay = habitDay.get('day');
       that.$el.find(".btn-circle[data-day='" + doneDay + "']").addClass("completed");
     });
@@ -24,12 +29,12 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
 
   createHabitDay: function(event) {
     var that = this;
-    var newHabitDay = new HabitrackApp.Models.HabitDay({}, {model: this.model});
+    var newHabitDay = new HabitrackApp.Models.HabitDay({}, {model: this.habit});
     var params = { day: $(event.currentTarget).data("day") };
 
     newHabitDay.save({habit: params}, {
       success: function(savedHabitDay) {
-        that.collection.add(savedHabitDay);
+        that.currentHabitDays.add(savedHabitDay);
         $(event.currentTarget).addClass('completed');
       }
     });
@@ -37,14 +42,14 @@ HabitrackApp.Views.HabitDays = Backbone.View.extend({
 
   deleteHabitDay: function(event) {
     var clickedDay = $(event.currentTarget).data('day');
-    var clickedHabitDayModel = this.collection.find(function(model) {
+    var clickedHabitDayModel = this.currentHabitDays.find(function(model) {
       return model.get('day') == clickedDay;
     });
     clickedHabitDayModel.destroy({
       success: function(deletedHabit) {
         $(event.currentTarget).removeClass('completed');
       }
-    }, {model: this.model});
+    }, {model: this.habit});
   },
 
   render: function() {

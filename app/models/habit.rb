@@ -19,7 +19,9 @@ class Habit < ActiveRecord::Base
   has_many :habit_days
 
   def current_habit_days
-    self.habit_days.where(created_at: (Date.today.beginning_of_week .. Date.today + 1))
+    self.habit_days.where(
+      created_at: (Time.zone.now.beginning_of_week .. Time.zone.now + 1.day)
+      )
   end
 
 end

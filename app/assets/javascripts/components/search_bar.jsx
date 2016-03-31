@@ -18,16 +18,16 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
       });
     }
     var usersList = users.map(function(username) {
-      return <li key={ username }>{ username }</li>;
+      return <li className="list-username" key={ username }>{ username }</li>;
     });
 
     return (
       <div>
         <form id="friend-search-form">
-          <input type="text" autocomplete="off" class="form-control friend-search-input" name="username" value={ this.state.searchTerm } onChange={ this.handleChange } placeholder="Friend's Username" />
-          <input type="submit" class="btn btn-default" value="+" />
+          <input type="text" autoComplete="off" className="form-control friend-search-input" name="username" value={ this.state.searchTerm } onChange={ this.handleChange } placeholder="Friend's Username" />
+          <input type="submit" className="btn btn-default hidden" value="+" />
         </form>
-        <div class="filtered-user-list">
+        <div className="filtered-user-list">
           <ul>
             { usersList }
           </ul>

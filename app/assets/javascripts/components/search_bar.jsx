@@ -23,8 +23,8 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
 
     return (
       <div>
-        <form id="friend-search-form" class="hidden">
-          <input type="text" autocomplete="off" class="form-control" name="username" value={ this.state.searchTerm } onChange={ this.handleChange } placeholder="Friend's Username" />
+        <form id="friend-search-form">
+          <input type="text" autocomplete="off" class="form-control friend-search-input" name="username" value={ this.state.searchTerm } onChange={ this.handleChange } placeholder="Friend's Username" />
           <input type="submit" class="btn btn-default" value="+" />
         </form>
         <div class="filtered-user-list">

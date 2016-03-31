@@ -375,6 +375,9 @@ h1 {
       padding-bottom: 5px;
     }
   }
+  #friend-search {
+    display: none;
+  }
 }
 
 .friend-list-piece {
@@ -421,4 +424,8 @@ h1 {
       cursor: default;
     }
   }
+}
+
+.show {
+  display: block;
 }

@@ -24,6 +24,9 @@
 //= require backbone
 //= require backbone.TriggerHappy.js
 //= require habitrack_app
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models

@@ -384,6 +384,9 @@ h1 {
     border: 1px solid #BDBEBB;
     border-radius: 2px;
     background-color: #FFF;
+    z-index: 100;
+    position: absolute;
+    width: 320px;
     ul {
       list-style: none;
       padding: 0;

@@ -1,5 +1,5 @@
 var searchBar = HabitrackApp.searchBar = React.createClass({
-  getInitialState() {
+  getInitialState: function() {
     return { searchTerm: '' };
   },
 
@@ -7,6 +7,11 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
     this.setState({ searchTerm:event.target.value });
   },
 
+  makeUsersList: function(users) {
+    return users.map(function(username) {
+      return <li className="list-username" key={ username }>{ username }</li>;
+    });
+  },
 
   render: function() {
     var users = this.props.items;
@@ -17,19 +22,26 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
         return friend.toLowerCase().match(searchTerm);
       });
     }
-    var usersList = users.map(function(username) {
-      return <li className="list-username" key={ username }>{ username }</li>;
-    });
 
     return (
       <div>
         <form id="friend-search-form">
-          <input type="text" autoComplete="off" className="form-control friend-search-input" name="username" value={ this.state.searchTerm } onChange={ this.handleChange } placeholder="Friend's Username" />
-          <input type="submit" className="btn btn-default hidden" value="+" />
+          <input
+            type="text"
+            autoComplete="off"
+            className="form-control friend-search-input"
+            name="username"
+            value={ this.state.searchTerm }
+            onChange={ this.handleChange }
+            placeholder="Friend's Username" />
+          <input
+            type="submit"
+            className="btn btn-default hidden"
+            value="+" />
         </form>
         <div className="filtered-user-list">
           <ul>
-            { usersList }
+            { this.makeUsersList(users) }
           </ul>
         </div>
       </div>

@@ -25,13 +25,15 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
   events: {
     "click #friend-search-btn": "toggleSearchForm",
     "submit": "createFriendships",
-    "click .list-username": "updateInputValue"
+    "click .list-username": "createFriendThroughClick"
   },
 
-  updateInputValue: function(event) {
-    $('.friend-search-input').val(event.target.textContent);
+  updateInputValue: function(friendName) {
+    var inputEl = document.querySelector('.friend-search-input');
     var triggerChange = new Event('input', { bubbles: true });
-    document.querySelector('.friend-search-input').dispatchEvent(triggerChange);
+
+    inputEl.value = friendName;
+    inputEl.dispatchEvent(triggerChange);
   },
 
   toggleSearchForm: function(event) {
@@ -40,6 +42,11 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
     this.updateInputValue('');
   },
 
+  createFriendThroughClick: function(event) {
+    var friendName = event.target.textContent;
+
+    this.updateInputValue(friendName);
+    this.createFriendships(event);
   },
 
   createFriendships: function(event) {

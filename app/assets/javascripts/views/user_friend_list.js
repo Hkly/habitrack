@@ -60,8 +60,6 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
     friendship.save({}, {
       success: function(newFriend) {
         that.userFriends.add(newFriend);
-        $(event.currentTarget).parent().find('#friend-search-btn').removeClass('hidden');
-        $(event.currentTarget).find('input.typeahead').val('');
       }
     });
   },

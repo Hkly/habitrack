@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.sortable
 //= require jquery.serializejson.min.js
-//= require typeahead.jquery.js
 //= require Chart
 //= require shepherd.js
 //= require countUp.min.js

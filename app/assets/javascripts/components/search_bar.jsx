@@ -4,13 +4,28 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
   },
 
   handleChange: function(event) {
-    this.setState({ searchTerm:event.target.value });
+    var inputValue = event.target.value;
+
+    this.hideList();
+    if(inputValue.length > 0) {
+      this.showList();
+    }
+
+    this.setState({ searchTerm: inputValue });
   },
 
   makeUsersList: function(users) {
     return users.map(function(username) {
       return <li className="list-username" key={ username }>{ username }</li>;
     });
+  },
+
+  showList: function() {
+    $('.filtered-user-list').removeClass('hidden');
+  },
+
+  hideList: function() {
+    $('.filtered-user-list').addClass('hidden');
   },
 
   render: function() {
@@ -39,7 +54,7 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
             className="btn btn-default hidden"
             value="+" />
         </form>
-        <div className="filtered-user-list">
+        <div className="filtered-user-list hidden">
           <ul>
             { this.makeUsersList(users) }
           </ul>

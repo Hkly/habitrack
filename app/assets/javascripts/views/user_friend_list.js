@@ -41,6 +41,7 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
 
   createFriendships: function(event) {
     event.preventDefault();
+    $('.filtered-user-list').addClass('hidden');
     var params = this.$('form').serializeJSON();
     var friendship = new HabitrackApp.Models.Friendship();
 

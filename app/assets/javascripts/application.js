@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require jquery.ui.sortable
 //= require jquery.serializejson.min.js
-//= require typeahead.jquery.js
 //= require Chart
 //= require shepherd.js
 //= require countUp.min.js
@@ -24,6 +23,9 @@
 //= require backbone
 //= require backbone.TriggerHappy.js
 //= require habitrack_app
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree ../templates
 //= require_tree ./utils
 //= require_tree ./models

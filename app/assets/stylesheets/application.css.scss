@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  *= require shepherd-theme-arrows.css
- *= require typeahead.css
  */
 
 
@@ -348,6 +347,8 @@ h1 {
   border-bottom-right-radius: 5px !important;
 }
 
+// *** Friends ***
+
 .friends-list-box {
   h1 {
     display: inline-block;
@@ -373,6 +374,30 @@ h1 {
     // overflow-y: auto;
     #friend-search {
       padding-bottom: 5px;
+    }
+  }
+}
+
+#friend-search {
+  .filtered-user-list {
+    border: 1px solid #BDBEBB;
+    border-radius: 2px;
+    background-color: #FFF;
+    z-index: 100;
+    position: absolute;
+    width: 320px;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding-left: 5px;
+      line-height: 30px;
+    }
+    li:hover {
+      cursor: default;
+      background-color: #b6b6b6;
     }
   }
 }
@@ -421,4 +446,8 @@ h1 {
       cursor: default;
     }
   }
+}
+
+.show {
+  display: block;
 }

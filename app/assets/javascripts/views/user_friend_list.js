@@ -23,7 +23,7 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click #friend-search-btn": "showSearchForm",
+    "click #friend-search-btn": "toggleSearchForm",
     "submit": "createFriendships",
     "click .list-username": "updateInputValue"
   },
@@ -34,9 +34,12 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
     document.querySelector('.friend-search-input').dispatchEvent(triggerChange);
   },
 
-  showSearchForm: function(event) {
-    $(event.currentTarget).parent().find('#friend-search').toggleClass('hidden');
-    $(event.currentTarget).parent().find('input.friend-search-input').focus();
+  toggleSearchForm: function(event) {
+    $('#friend-search').toggleClass('hidden');
+    $('input.friend-search-input').focus();
+    this.updateInputValue('');
+  },
+
   },
 
   createFriendships: function(event) {

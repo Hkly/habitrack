@@ -15,9 +15,11 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
   },
 
   makeUsersList: function(users) {
-    return users.map(function(username) {
+    var makeUsernameMarkup = function(username) {
       return <li className="list-username" key={ username }>{ username }</li>;
-    });
+    };
+
+    return users.map(makeUsernameMarkup);
   },
 
   showList: function() {
@@ -31,11 +33,12 @@ var searchBar = HabitrackApp.searchBar = React.createClass({
   render: function() {
     var users = this.props.items;
     var searchTerm = this.state.searchTerm.trim().toLowerCase();
+    var matchSearchTerm = function(username) {
+      return username.toLowerCase().match(searchTerm);
+    };
 
     if(searchTerm.length > 0) {
-      users = users.filter(function(friend) {
-        return friend.toLowerCase().match(searchTerm);
-      });
+      users = users.filter(matchSearchTerm);
     }
 
     return (

@@ -9,7 +9,7 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
 
   events: {
     "click #friend-search-btn": "toggleSearchForm",
-    "submit": "createFriendship",
+    "submit": "createFriendThroughSubmit",
     "click .list-username": "createFriendThroughClick"
   },
 
@@ -21,7 +21,7 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
 
   addFriendList: function() {
     var that = this;
-    this.userFriends.each( function(friend) {
+    this.userFriends.each(function(friend) {
       that.addFriendListPiece(friend);
     });
   },
@@ -45,17 +45,23 @@ HabitrackApp.Views.UserFriendList = Backbone.CompositeView.extend({
     var friendName = event.target.textContent;
 
     this.updateInputValue(friendName);
-    this.createFriendship(event);
+    this.createFriendship(friendName);
   },
 
-  createFriendship: function(event) {
-    event.preventDefault();
-    $('.filtered-user-list').addClass('hidden');
-    var params = this.$('form').serializeJSON();
-    var friendship = new HabitrackApp.Models.Friendship();
+  createFriendThroughSubmit: function(event) {
+    var friendName = event.target.textContent;
 
-    friendship.set(params);
+    event.preventDefault();
+    this.createFriendship(friendName);
+  },
+
+  createFriendship: function(friendName) {
+    var params = {username: friendName};
+    var friendship = new HabitrackApp.Models.Friendship();
     var that = this;
+
+    $('.filtered-user-list').addClass('hidden');
+    friendship.set(params);
     friendship.save({}, {
       success: function(newFriend) {
         that.userFriends.add(newFriend);
